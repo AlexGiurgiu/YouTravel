@@ -315,6 +315,8 @@ function Corporate({ t }) {
             <li>{t.corp.b3}</li>
           </ul>
         </div>
+
+        {/* Images: show first 2 on mobile, all 3 on desktop */}
         <div className="grid grid-cols-2 gap-4">
           <img
             src={`${import.meta.env.BASE_URL}images/corp-skyline.jpg`}
@@ -329,7 +331,7 @@ function Corporate({ t }) {
           <img
             src={`${import.meta.env.BASE_URL}images/corp-night.jpg`}
             alt="Night City"
-            className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56 col-span-2"
+            className="hidden md:block rounded-xl shadow-lg object-cover w-full h-44 md:h-56 col-span-2"
           />
         </div>
       </div>
@@ -341,7 +343,21 @@ function Family({ t }) {
   return (
     <section id="family" className="bg-[#FFF7ED] py-16">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-        <div className="grid grid-cols-2 gap-4 order-1 md:order-2">
+        {/* Text first on mobile, left on desktop */}
+        <div className="order-1">
+          <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>
+            {t.fam.title}
+          </h2>
+          <p className="mb-5 text-gray-800">{t.fam.text}</p>
+          <ul className="space-y-2 list-disc list-inside text-gray-800">
+            <li>{t.fam.b1}</li>
+            <li>{t.fam.b2}</li>
+            <li>{t.fam.b3}</li>
+          </ul>
+        </div>
+
+        {/* Photos second on mobile, right on desktop */}
+        <div className="order-2 grid grid-cols-2 gap-4">
           <img
             src={`${import.meta.env.BASE_URL}images/fam-pineapple.jpg`}
             alt="Tropical pineapple drink on the beach"
@@ -355,17 +371,8 @@ function Family({ t }) {
           <img
             src={`${import.meta.env.BASE_URL}images/fam-jetski.jpg`}
             alt="Family riding a jetski"
-            className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56 col-span-2"
+            className="hidden md:block rounded-xl shadow-lg object-cover w-full h-44 md:h-56 col-span-2"
           />
-        </div>
-        <div className="order-2 md:order-1">
-          <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>{t.fam.title}</h2>
-          <p className="mb-5 text-gray-800">{t.fam.text}</p>
-          <ul className="space-y-2 list-disc list-inside text-gray-800">
-            <li>{t.fam.b1}</li>
-            <li>{t.fam.b2}</li>
-            <li>{t.fam.b3}</li>
-          </ul>
         </div>
       </div>
     </section>
