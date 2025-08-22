@@ -21,7 +21,6 @@ const T = {
     headline: "Personalized Travel. Anytime, Anywhere.",
     subheadline: "Smart journeys for businesses & families.",
     nav: {
-      services: "Services", // not shown in header anymore, kept for completeness
       corporate: "Corporate Travel",
       family: "Bespoke Holidays",
       about: "About Us",
@@ -61,7 +60,6 @@ const T = {
     headline: "Călătorii personalizate. Oriunde, oricând.",
     subheadline: "Călătorii inteligente pentru afaceri și familii.",
     nav: {
-      services: "Servicii",
       corporate: "Corporate Travel",
       family: "Vacanțe Personalizate",
       about: "Despre noi",
@@ -122,8 +120,7 @@ function useLang() {
   const switchLang = (next) => {
     localStorage.setItem("lang", next);
     setLang(next);
-    const section =
-      (typeof window !== "undefined" && window.location.hash) || "";
+    const section = (typeof window !== "undefined" && window.location.hash) || "";
     navigate((next === "ro" ? "/ro" : "/") + section);
   };
 
@@ -158,8 +155,11 @@ function Header({ t, switchLang, lang }) {
   useEffect(() => {
     const ids = ["corporate", "family", "about", "contact"]; // order matters
     const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
       { root: null, threshold: 0.3, rootMargin: "-40% 0px -55% 0px" }
     );
     ids.forEach((id) => {
@@ -193,13 +193,9 @@ function Header({ t, switchLang, lang }) {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between py-3 px-4">
         {/* Logo-only brand (button to hero) */}
-        <button
-          onClick={() => scrollToId("hero")}
-          className="flex items-center"
-          aria-label="YouTravel"
-        >
+        <button onClick={() => scrollToId("hero")} className="flex items-center" aria-label="YouTravel">
           <img
-            src="/images/logo-youtravel-blue.png"
+            src={`${import.meta.env.BASE_URL}images/logo-youtravel-blue.png`}
             alt="YouTravel"
             className="h-12 w-auto"
           />
@@ -220,27 +216,19 @@ function Header({ t, switchLang, lang }) {
               aria-haspopup="listbox"
               aria-expanded={openLang}
             >
-              <span role="img" aria-label="language">
-                🌐
-              </span>
+              <span role="img" aria-label="language">🌐</span>
               <span>{lang === "ro" ? "Limba (română)" : "Language"}</span>
             </button>
             {openLang && (
               <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded-lg border border-gray-200 overflow-hidden">
                 <button
-                  onClick={() => {
-                    setOpenLang(false);
-                    switchLang("en");
-                  }}
+                  onClick={() => { setOpenLang(false); switchLang("en"); }}
                   className="block w-full text-left px-3 py-2 hover:bg-gray-50"
                 >
                   EN
                 </button>
                 <button
-                  onClick={() => {
-                    setOpenLang(false);
-                    switchLang("ro");
-                  }}
+                  onClick={() => { setOpenLang(false); switchLang("ro"); }}
                   className="block w-full text-left px-3 py-2 hover:bg-gray-50"
                 >
                   RO
@@ -251,18 +239,9 @@ function Header({ t, switchLang, lang }) {
         </nav>
 
         {/* Mobile burger */}
-        <button
-          className="md:hidden p-2"
-          onClick={() => setMobileOpen(true)}
-          aria-label="Open menu"
-        >
+        <button className="md:hidden p-2" onClick={() => setMobileOpen(true)} aria-label="Open menu">
           <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M4 6h16M4 12h16M4 18h16"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </button>
       </div>
@@ -270,80 +249,31 @@ function Header({ t, switchLang, lang }) {
       {/* Mobile panel */}
       {mobileOpen && (
         <div className="md:hidden fixed inset-0 z-50">
-          <div
-            className="absolute inset-0 bg-black/40"
-            onClick={() => setMobileOpen(false)}
-          />
+          <div className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} />
           <div className="absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-4 flex flex-col gap-2">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-lg font-semibold" style={{ color: COLORS.navy }}>
-                Menu
-              </span>
-              <button onClick={() => setMobileOpen(false)} aria-label="Close">
-                ✕
-              </button>
+              <span className="text-lg font-semibold" style={{ color: COLORS.navy }}>Menu</span>
+              <button onClick={() => setMobileOpen(false)} aria-label="Close">✕</button>
             </div>
             <div className="border rounded-lg overflow-hidden">
-              <button
-                onClick={() => {
-                  scrollToId("corporate");
-                  setMobileOpen(false);
-                }}
-                className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b"
-              >
+              <button onClick={() => { scrollToId("corporate"); setMobileOpen(false); }} className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b">
                 {t.nav.corporate}
               </button>
-              <button
-                onClick={() => {
-                  scrollToId("family");
-                  setMobileOpen(false);
-                }}
-                className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b"
-              >
+              <button onClick={() => { scrollToId("family"); setMobileOpen(false); }} className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b">
                 {t.nav.family}
               </button>
-              <button
-                onClick={() => {
-                  scrollToId("about");
-                  setMobileOpen(false);
-                }}
-                className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b"
-              >
+              <button onClick={() => { scrollToId("about"); setMobileOpen(false); }} className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b">
                 {t.nav.about}
               </button>
-              <button
-                onClick={() => {
-                  scrollToId("contact");
-                  setMobileOpen(false);
-                }}
-                className="w-full text-left px-4 py-3 hover:bg-gray-50"
-              >
+              <button onClick={() => { scrollToId("contact"); setMobileOpen(false); }} className="w-full text-left px-4 py-3 hover:bg-gray-50">
                 {t.nav.contact}
               </button>
             </div>
             <div className="mt-3">
-              <div className="text-xs text-gray-500 mb-1">
-                🌐 {lang === "ro" ? "Limba (română)" : "Language"}
-              </div>
+              <div className="text-xs text-gray-500 mb-1">🌐 {lang === "ro" ? "Limba (română)" : "Language"}</div>
               <div className="flex gap-2">
-                <button
-                  onClick={() => {
-                    switchLang("en");
-                    setMobileOpen(false);
-                  }}
-                  className="px-3 py-2 border rounded"
-                >
-                  EN
-                </button>
-                <button
-                  onClick={() => {
-                    switchLang("ro");
-                    setMobileOpen(false);
-                  }}
-                  className="px-3 py-2 border rounded"
-                >
-                  RO
-                </button>
+                <button onClick={() => { switchLang("en"); setMobileOpen(false); }} className="px-3 py-2 border rounded">EN</button>
+                <button onClick={() => { switchLang("ro"); setMobileOpen(false); }} className="px-3 py-2 border rounded">RO</button>
               </div>
             </div>
           </div>
@@ -357,16 +287,14 @@ function Hero({ t }) {
   return (
     <section id="hero" className="h-[80vh] md:h-[92vh] relative">
       <img
-        src="/images/hero-skyline.jpg"
+        src={`${import.meta.env.BASE_URL}images/hero-skyline.jpg`}
         alt="Hero"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-black/45" />
       <div className="relative z-10 max-w-6xl mx-auto h-full px-6 flex items-center">
         <div className="text-white">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            {t.headline}
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight">{t.headline}</h1>
           <p className="mt-4 text-lg md:text-2xl opacity-95">{t.subheadline}</p>
         </div>
       </div>
@@ -389,17 +317,17 @@ function Corporate({ t }) {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <img
-            src="/images/corp-skyline.jpg"
+            src={`${import.meta.env.BASE_URL}images/corp-skyline.jpg`}
             alt="Skyline"
             className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
           />
           <img
-            src="/images/corp-rooftop.jpg"
+            src={`${import.meta.env.BASE_URL}images/corp-rooftop.jpg`}
             alt="Rooftop"
             className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
           />
           <img
-            src="/images/corp-night.jpg"
+            src={`${import.meta.env.BASE_URL}images/corp-night.jpg`}
             alt="Night City"
             className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56 col-span-2"
           />
@@ -415,25 +343,23 @@ function Family({ t }) {
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
         <div className="grid grid-cols-2 gap-4 order-1 md:order-2">
           <img
-            src="/images/fam-pineapple.jpg"
+            src={`${import.meta.env.BASE_URL}images/fam-pineapple.jpg`}
             alt="Tropical pineapple drink on the beach"
             className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
           />
           <img
-            src="/images/fam-airplane-hand.jpeg" 
+            src={`${import.meta.env.BASE_URL}images/fam-airplane-hand.jpeg`}
             alt="Hand holding a plane toy by the airplane window"
             className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
           />
           <img
-            src="/images/fam-jetski.jpg"
+            src={`${import.meta.env.BASE_URL}images/fam-jetski.jpg`}
             alt="Family riding a jetski"
             className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56 col-span-2"
           />
         </div>
         <div className="order-2 md:order-1">
-          <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>
-            {t.fam.title}
-          </h2>
+          <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>{t.fam.title}</h2>
           <p className="mb-5 text-gray-800">{t.fam.text}</p>
           <ul className="space-y-2 list-disc list-inside text-gray-800">
             <li>{t.fam.b1}</li>
@@ -450,23 +376,21 @@ function About({ t }) {
   return (
     <section id="about" className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>
-          {t.about.title}
-        </h2>
+        <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>{t.about.title}</h2>
         <p className="mb-8 text-gray-700 max-w-2xl mx-auto">{t.about.text}</p>
         <div className="grid md:grid-cols-3 gap-6">
           <img
-            src="/images/about-centralpark.jpg"
+            src={`${import.meta.env.BASE_URL}images/about-centralpark.jpg`}
             alt="Central Park"
             className="rounded-xl shadow-md object-cover h-56 md:h-64 w-full"
           />
           <img
-            src="/images/about-eiffel.jpg"
+            src={`${import.meta.env.BASE_URL}images/about-eiffel.jpg`}
             alt="Eiffel Tower"
             className="rounded-xl shadow-md object-cover h-56 md:h-64 w-full"
           />
           <img
-            src="/images/about-canyon.jpg"
+            src={`${import.meta.env.BASE_URL}images/about-canyon.jpg`}
             alt="Canyon"
             className="rounded-xl shadow-md object-cover h-56 md:h-64 w-full"
           />
@@ -526,9 +450,7 @@ function Footer({ lang }) {
             to={path}
             className="text-xs underline opacity-80 hover:opacity-100"
           >
-            {lang === "ro"
-              ? "Politica de confidențialitate"
-              : "Privacy Policy"}
+            {lang === "ro" ? "Politica de confidențialitate" : "Privacy Policy"}
           </Link>
         </div>
 
@@ -569,28 +491,19 @@ function AppRouter() {
   const { lang, t, switchLang } = useLang();
   return (
     <Routes>
-      <Route
-        path="/"
-        element={<OnePage t={t} switchLang={switchLang} lang={lang} />}
-      />
-      <Route
-        path="/ro"
-        element={<OnePage t={t} switchLang={switchLang} lang={lang} />}
-      />
+      <Route path="/" element={<OnePage t={t} switchLang={switchLang} lang={lang} />} />
+      <Route path="/ro" element={<OnePage t={t} switchLang={switchLang} lang={lang} />} />
       <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="/ro/privacy" element={<PrivacyPage />} />
-      <Route
-        path="*"
-        element={<OnePage t={t} switchLang={switchLang} lang={lang} />}
-      />
+      <Route path="*" element={<OnePage t={t} switchLang={switchLang} lang={lang} />} />
     </Routes>
   );
 }
 
-// --- Mount
+// --- Mount (GitHub Pages: use basename)
 const container = document.getElementById("root");
 createRoot(container).render(
-  <BrowserRouter>
+  <BrowserRouter basename={import.meta.env.BASE_URL}>
     <ScrollToTop />
     <AppRouter />
   </BrowserRouter>
