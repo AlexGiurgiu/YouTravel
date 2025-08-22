@@ -383,18 +383,21 @@ function About({ t }) {
   return (
     <section id="about" className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>{t.about.title}</h2>
+        <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>
+          {t.about.title}
+        </h2>
         <p className="mb-8 text-gray-700 max-w-2xl mx-auto">{t.about.text}</p>
+
         <div className="grid md:grid-cols-3 gap-6">
           <img
             src={`${import.meta.env.BASE_URL}images/about-centralpark.jpg`}
             alt="Central Park"
-            className="rounded-xl shadow-md object-cover h-56 md:h-64 w-full"
+            className="hidden md:block rounded-xl shadow-md object-cover h-56 md:h-64 w-full"
           />
           <img
             src={`${import.meta.env.BASE_URL}images/about-eiffel.jpg`}
             alt="Eiffel Tower"
-            className="rounded-xl shadow-md object-cover h-56 md:h-64 w-full"
+            className="hidden md:block rounded-xl shadow-md object-cover h-56 md:h-64 w-full"
           />
           <img
             src={`${import.meta.env.BASE_URL}images/about-canyon.jpg`}
