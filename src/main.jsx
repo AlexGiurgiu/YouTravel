@@ -304,7 +304,7 @@ function Hero({ t }) {
 
 function Corporate({ t }) {
   return (
-    <section id="corporate" className="bg-[#0F1F36] py-16 text-white">
+    <section id="corporate" className="bg-[#1D3557] py-16 text-white">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 className="text-3xl font-bold mb-4">{t.corp.title}</h2>
