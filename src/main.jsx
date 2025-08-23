@@ -187,9 +187,10 @@ function Header({ t, switchLang, lang }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur border-b border-neutral-200 ${
-        scrolled ? "shadow-md" : "shadow-none"
-      }`}
+      className={
+        // 👉 Solid white header (no translucency/blur) so it won't look grey on mobile
+        "header-solid fixed top-0 left-0 w-full z-50 border-b border-neutral-200"
+      }
     >
       <div className="container-wide flex items-center justify-between py-3">
         {/* Logo-only brand (button to hero) */}
@@ -304,7 +305,7 @@ function Hero({ t }) {
 
 function Corporate({ t }) {
   return (
-    <section id="corporate" className="bg-[#0F1F36] py-16 text-white">
+    <section id="corporate" className="section-corporate py-16 text-white">
       <div className="container-wide grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 className="text-3xl font-bold mb-4">{t.corp.title}</h2>
@@ -341,7 +342,7 @@ function Corporate({ t }) {
 
 function Family({ t }) {
   return (
-    <section id="family" className="bg-[#FFF7ED] py-16">
+    <section id="family" className="section-family py-16">
       <div className="container-wide grid md:grid-cols-2 gap-10 items-center">
         {/* Text (left) */}
         <div>
@@ -381,7 +382,7 @@ function Family({ t }) {
 
 function About({ t }) {
   return (
-    <section id="about" className="py-16 bg-white text-center">
+    <section id="about" className="section-about py-16 text-center">
       <div className="container-wide">
         <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>
           {t.about.title}
@@ -414,7 +415,7 @@ function About({ t }) {
 
 function Contact({ t }) {
   return (
-    <section id="contact" className="bg-[#1D3557] py-16 text-white text-center">
+    <section id="contact" className="section-contact py-16 text-white text-center">
       <div className="container-wide">
         <h2 className="text-3xl font-bold mb-4">{t.contact.title}</h2>
         <p className="mb-6 opacity-90">{t.contact.text}</p>
@@ -425,7 +426,7 @@ function Contact({ t }) {
             📧 {t.contact.email}: <span className="font-semibold">office@youtravel.ro</span>
           </a>
 
-        {/* Phone (visible) */}
+          {/* Phone (visible) */}
           <a href="tel:+40720377378" className="btn-coral" aria-label="Call YouTravel">
             📞 {t.contact.phone}: <span className="font-semibold">+40 720 377 378</span>
           </a>
