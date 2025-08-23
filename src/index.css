@@ -1,51 +1,29 @@
-/* Tailwind base (keep if you're using Tailwind) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ------------------------------
-   Global light-mode enforcement
-   (prevents Android/Chrome from auto-darkening)
---------------------------------*/
-html, body {
+/* ----- HARD lock to light mode (prevents Android auto-darken) ----- */
+:root,
+html,
+body {
   background-color: #ffffff !important;
-  color-scheme: light !important;
+  color-scheme: light !important;         /* CSS hint */
   -webkit-text-size-adjust: 100%;
 }
 
-/* ------------------------------
-   Utility classes for stable colors
---------------------------------*/
-.yt-header {
-  /* Solid white header everywhere (no translucent grey on mobile) */
-  background-color: #ffffff !important;
-  backdrop-filter: none !important;
-}
+/* Also mark main sections explicitly (so forced-dark can't guess) */
+.yt-header { background-color: #ffffff !important; backdrop-filter: none !important; }
+.yt-white  { background-color: #ffffff !important; }
+.yt-peach  { background-color: #FFF7ED !important; }
+.yt-navy   { background-color: #1D3557 !important; }
 
-.yt-white {
-  /* Pure white section bg */
-  background-color: #ffffff !important;
-}
-
-.yt-peach {
-  /* Family section bg — exact same as desktop */
-  background-color: #FFF7ED !important;
-}
-
-.yt-navy {
-  /* Contact section bg */
-  background-color: #1D3557 !important;
-}
-
-/* If the OS is in dark mode, still render the site as light */
+/* If the OS is in dark, still render light */
 @media (prefers-color-scheme: dark) {
-  html, body { background-color: #ffffff !important; color-scheme: light !important; }
+  :root, html, body { background-color: #ffffff !important; color-scheme: light !important; }
   .yt-header, .yt-white { background-color: #ffffff !important; }
   .yt-peach { background-color: #FFF7ED !important; }
   .yt-navy  { background-color: #1D3557 !important; }
 }
 
-/* Optional: a tiny helper for smooth focus rings on buttons/links */
-.focus-ring {
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E76F51];
-}
+/* Small helper for better focus styles (optional) */
+.focus-ring { @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E76F51]; }
