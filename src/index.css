@@ -1,29 +1,61 @@
+/* Tailwind base (keep if you’re using Tailwind) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ----- HARD lock to light mode (prevents Android auto-darken) ----- */
-:root,
-html,
-body {
-  background-color: #ffffff !important;
-  color-scheme: light !important;         /* CSS hint */
-  -webkit-text-size-adjust: 100%;
+/* ---- Force light color scheme across devices ---- */
+:root {
+  color-scheme: light;           /* Tell browsers this site is light only */
 }
 
-/* Also mark main sections explicitly (so forced-dark can't guess) */
-.yt-header { background-color: #ffffff !important; backdrop-filter: none !important; }
-.yt-white  { background-color: #ffffff !important; }
-.yt-peach  { background-color: #FFF7ED !important; }
-.yt-navy   { background-color: #1D3557 !important; }
+/* Explicitly set page background to white */
+html, body, #root {
+  background: #ffffff;
+}
 
-/* If the OS is in dark, still render light */
+/* When the OS asks for dark, stay light (opt-out of auto-darkening) */
 @media (prefers-color-scheme: dark) {
-  :root, html, body { background-color: #ffffff !important; color-scheme: light !important; }
-  .yt-header, .yt-white { background-color: #ffffff !important; }
-  .yt-peach { background-color: #FFF7ED !important; }
-  .yt-navy  { background-color: #1D3557 !important; }
+  html, body, #root {
+    background: #ffffff !important;
+    color: #0a0a0a !important;
+  }
 }
 
-/* Small helper for better focus styles (optional) */
-.focus-ring { @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E76F51]; }
+/* ---- Hard background tokens (cannot be auto-darkened) ---- */
+.bg-pure-white { background-color: #ffffff !important; }
+.bg-peach      { background-color: #FFF7ED !important; }
+.bg-navy-yt    { background-color: #0F1F36 !important; }
+
+/* Solid header surface */
+.header-solid {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+/* Optional: small util to clamp content width */
+.container-yt {
+  max-width: 72rem; /* 1152px ~ Tailwind's max-w-6xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Buttons (same coral across contact CTAs) */
+.btn-coral {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  background-color: #E76F51;
+  color: #fff;
+  padding: .75rem 1.5rem;
+  border-radius: .5rem;
+  box-shadow: 0 4px 10px rgba(231,111,81,.25);
+}
+.btn-coral:hover { background-color: #d65b42; }
+.btn-coral:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(231,111,81,.35), 0 4px 10px rgba(231,111,81,.25);
+}
