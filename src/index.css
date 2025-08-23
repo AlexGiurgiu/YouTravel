@@ -1,3 +1,74 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ---------- Base resets & light-mode enforcement ---------- */
+html {
+  color-scheme: light !important;         /* prevent Android/Chrome darkening */
+  background: #ffffff !important;
+}
+
+body {
+  @apply font-sans antialiased;
+  background: #ffffff !important;
+  color: #111827;                          /* gray-900 */
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Section background fallbacks (desktop = mobile) ---------- */
+#hero      { background-color: #000000; }  /* under hero image overlay */
+#corporate { background-color: #0F1F36; }  /* deep navy */
+#family    { background-color: #FFF7ED; }  /* soft peach */
+#about     { background-color: #FFFFFF; }  /* white */
+#contact   { background-color: #1D3557; }  /* deep navy */
+footer     { background-color: #111827; }  /* gray-900 */
+
+/* ---------- Typographic helpers ---------- */
+h1, h2, h3, h4 { @apply font-bold; }
+a { @apply transition-colors; }
+a:hover { @apply text-[#E76F51]; }
+
+/* ---------- Components (reusable classes) ---------- */
+@layer components {
+  /* Primary coral button */
+  .btn-coral {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-lg shadow
+           bg-[#E76F51] text-white
+           hover:bg-[#d65b42]
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+           focus-visible:ring-[#E76F51] focus-visible:ring-offset-transparent;
+  }
+
+  /* Ghost button for secondary actions on dark backgrounds */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           px-4 py-2 rounded-md
+           text-white/90 hover:text-white
+           bg-white/0 hover:bg-white/10
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60;
+  }
+
+  /* Subtle link button (e.g., language dropdown items) */
+  .btn-link {
+    @apply block w-full text-left px-3 py-2
+           hover:bg-gray-50 rounded;
+  }
+
+  /* Card image styling used throughout galleries */
+  .img-card {
+    @apply rounded-xl shadow-lg object-cover w-full;
+  }
+
+  /* Container widths */
+  .container-wide {
+    @apply max-w-6xl mx-auto px-6;
+  }
+}
+
+/* ---------- Misc ---------- */
+button { @apply focus:outline-none; }
+.backdrop { background-color: rgba(0,0,0,0.4); }
