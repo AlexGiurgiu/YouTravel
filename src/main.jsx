@@ -120,7 +120,8 @@ function useLang() {
   const switchLang = (next) => {
     localStorage.setItem("lang", next);
     setLang(next);
-    const section = (typeof window !== "undefined" && window.location.hash) || "";
+    const section =
+      (typeof window !== "undefined" && window.location.hash) || "";
     navigate((next === "ro" ? "/ro" : "/") + section);
   };
 
@@ -172,7 +173,7 @@ function Header({ t, switchLang, lang }) {
   const Tab = ({ id, children }) => (
     <button
       onClick={() => scrollToId(id)}
-      className={`relative px-3 py-2 rounded-md text-[15px] transition-colors hover:bg-gray-100 ${
+      className={`relative px-3 py-2 rounded-md text-[15px] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E76F51] hover:bg-gray-100 ${
         active === id ? "text-[#E76F51]" : "text-gray-800"
       }`}
     >
@@ -188,13 +189,17 @@ function Header({ t, switchLang, lang }) {
   return (
     <header
       className={
-        // 👉 Solid white header (no translucency/blur) so it won't look grey on mobile
-        "header-solid fixed top-0 left-0 w-full z-50 border-b border-neutral-200"
+        "yt-header fixed top-0 left-0 w-full z-50 border-b border-neutral-200 " +
+        (scrolled ? "shadow-md" : "shadow-none")
       }
     >
-      <div className="container-wide flex items-center justify-between py-3">
+      <div className="max-w-6xl mx-auto flex items-center justify-between py-3 px-4">
         {/* Logo-only brand (button to hero) */}
-        <button onClick={() => scrollToId("hero")} className="flex items-center" aria-label="YouTravel">
+        <button
+          onClick={() => scrollToId("hero")}
+          className="flex items-center"
+          aria-label="YouTravel"
+        >
           <img
             src={`${import.meta.env.BASE_URL}images/logo-youtravel-blue.png`}
             alt="YouTravel"
@@ -213,24 +218,36 @@ function Header({ t, switchLang, lang }) {
           <div className="relative ml-2">
             <button
               onClick={() => setOpenLang((v) => !v)}
-              className="px-3 py-2 text-sm border rounded-md hover:bg-gray-50 flex items-center gap-1"
+              className="px-3 py-2 text-sm border rounded-md hover:bg-gray-50 flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E76F51]"
               aria-haspopup="listbox"
               aria-expanded={openLang}
             >
-              <span role="img" aria-label="language">🌐</span>
+              <span role="img" aria-label="language">
+                🌐
+              </span>
               <span>{lang === "ro" ? "Limba (română)" : "Language"}</span>
+              <svg width="14" height="14" viewBox="0 0 20 20" className="opacity-60">
+                <path d="M5 7l5 6 5-6H5z" fill="currentColor" />
+              </svg>
             </button>
+
             {openLang && (
-              <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded-lg border overflow-hidden">
+              <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded-lg border border-gray-200 overflow-hidden z-50">
                 <button
-                  onClick={() => { setOpenLang(false); switchLang("en"); }}
-                  className="btn-link"
+                  onClick={() => {
+                    setOpenLang(false);
+                    switchLang("en");
+                  }}
+                  className="block w-full text-left px-3 py-2 hover:bg-gray-50"
                 >
                   EN
                 </button>
                 <button
-                  onClick={() => { setOpenLang(false); switchLang("ro"); }}
-                  className="btn-link"
+                  onClick={() => {
+                    setOpenLang(false);
+                    switchLang("ro");
+                  }}
+                  className="block w-full text-left px-3 py-2 hover:bg-gray-50"
                 >
                   RO
                 </button>
@@ -240,9 +257,18 @@ function Header({ t, switchLang, lang }) {
         </nav>
 
         {/* Mobile burger */}
-        <button className="md:hidden p-2" onClick={() => setMobileOpen(true)} aria-label="Open menu">
+        <button
+          className="md:hidden p-2"
+          onClick={() => setMobileOpen(true)}
+          aria-label="Open menu"
+        >
           <svg width="24" height="24" viewBox="0 0 24 24">
-            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <path
+              d="M4 6h16M4 12h16M4 18h16"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
           </svg>
         </button>
       </div>
@@ -250,31 +276,80 @@ function Header({ t, switchLang, lang }) {
       {/* Mobile panel */}
       {mobileOpen && (
         <div className="md:hidden fixed inset-0 z-50">
-          <div className="absolute inset-0 backdrop" onClick={() => setMobileOpen(false)} />
+          <div
+            className="absolute inset-0 bg-black/40"
+            onClick={() => setMobileOpen(false)}
+          />
           <div className="absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-4 flex flex-col gap-2">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-lg font-semibold" style={{ color: COLORS.navy }}>Menu</span>
-              <button onClick={() => setMobileOpen(false)} aria-label="Close">✕</button>
+              <span className="text-lg font-semibold" style={{ color: COLORS.navy }}>
+                Menu
+              </span>
+              <button onClick={() => setMobileOpen(false)} aria-label="Close">
+                ✕
+              </button>
             </div>
             <div className="border rounded-lg overflow-hidden">
-              <button onClick={() => { scrollToId("corporate"); setMobileOpen(false); }} className="btn-link border-b">
+              <button
+                onClick={() => {
+                  scrollToId("corporate");
+                  setMobileOpen(false);
+                }}
+                className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b"
+              >
                 {t.nav.corporate}
               </button>
-              <button onClick={() => { scrollToId("family"); setMobileOpen(false); }} className="btn-link border-b">
+              <button
+                onClick={() => {
+                  scrollToId("family");
+                  setMobileOpen(false);
+                }}
+                className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b"
+              >
                 {t.nav.family}
               </button>
-              <button onClick={() => { scrollToId("about"); setMobileOpen(false); }} className="btn-link border-b">
+              <button
+                onClick={() => {
+                  scrollToId("about");
+                  setMobileOpen(false);
+                }}
+                className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b"
+              >
                 {t.nav.about}
               </button>
-              <button onClick={() => { scrollToId("contact"); setMobileOpen(false); }} className="btn-link">
+              <button
+                onClick={() => {
+                  scrollToId("contact");
+                  setMobileOpen(false);
+                }}
+                className="w-full text-left px-4 py-3 hover:bg-gray-50"
+              >
                 {t.nav.contact}
               </button>
             </div>
             <div className="mt-3">
-              <div className="text-xs text-gray-500 mb-1">🌐 {lang === "ro" ? "Limba (română)" : "Language"}</div>
+              <div className="text-xs text-gray-500 mb-1">
+                🌐 {lang === "ro" ? "Limba (română)" : "Language"}
+              </div>
               <div className="flex gap-2">
-                <button onClick={() => { switchLang("en"); setMobileOpen(false); }} className="px-3 py-2 border rounded">EN</button>
-                <button onClick={() => { switchLang("ro"); setMobileOpen(false); }} className="px-3 py-2 border rounded">RO</button>
+                <button
+                  onClick={() => {
+                    switchLang("en");
+                    setMobileOpen(false);
+                  }}
+                  className="px-3 py-2 border rounded"
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => {
+                    switchLang("ro");
+                    setMobileOpen(false);
+                  }}
+                  className="px-3 py-2 border rounded"
+                >
+                  RO
+                </button>
               </div>
             </div>
           </div>
@@ -293,10 +368,11 @@ function Hero({ t }) {
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-black/45" />
-      <div className="relative z-10 container-wide h-full flex items-center">
+      <div className="relative z-10 max-w-6xl mx-auto h-full px-6 flex items-center">
         <div className="text-white">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">{t.headline}</h1>
-          <p className="mt-4 text-lg md:text-2xl opacity-95">{t.subheadline}</p>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+            {t.headline}
+          </h1>
         </div>
       </div>
     </section>
@@ -305,8 +381,8 @@ function Hero({ t }) {
 
 function Corporate({ t }) {
   return (
-    <section id="corporate" className="section-corporate py-16 text-white">
-      <div className="container-wide grid md:grid-cols-2 gap-10 items-center">
+    <section id="corporate" className="bg-[#0F1F36] py-16 text-white">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 className="text-3xl font-bold mb-4">{t.corp.title}</h2>
           <p className="mb-5 opacity-90">{t.corp.text}</p>
@@ -322,17 +398,17 @@ function Corporate({ t }) {
           <img
             src={`${import.meta.env.BASE_URL}images/corp-skyline.jpg`}
             alt="Skyline"
-            className="img-card h-44 md:h-56"
+            className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
           />
           <img
             src={`${import.meta.env.BASE_URL}images/corp-rooftop.jpg`}
             alt="Rooftop"
-            className="img-card h-44 md:h-56"
+            className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
           />
           <img
             src={`${import.meta.env.BASE_URL}images/corp-night.jpg`}
             alt="Night City"
-            className="hidden md:block img-card h-44 md:h-56 col-span-2"
+            className="hidden md:block rounded-xl shadow-lg object-cover w-full h-44 md:h-56 col-span-2"
           />
         </div>
       </div>
@@ -342,10 +418,10 @@ function Corporate({ t }) {
 
 function Family({ t }) {
   return (
-    <section id="family" className="section-family py-16">
-      <div className="container-wide grid md:grid-cols-2 gap-10 items-center">
-        {/* Text (left) */}
-        <div>
+    <section id="family" className="yt-peach py-16">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        {/* Text first on mobile, left on desktop */}
+        <div className="order-1">
           <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>
             {t.fam.title}
           </h2>
@@ -357,22 +433,22 @@ function Family({ t }) {
           </ul>
         </div>
 
-        {/* Photos (right) — show first 2 on mobile, all on desktop */}
-        <div className="grid grid-cols-2 gap-4">
+        {/* Photos second on mobile, right on desktop */}
+        <div className="order-2 grid grid-cols-2 gap-4">
           <img
             src={`${import.meta.env.BASE_URL}images/fam-pineapple.jpg`}
             alt="Tropical pineapple drink on the beach"
-            className="img-card h-44 md:h-56"
+            className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
           />
           <img
             src={`${import.meta.env.BASE_URL}images/fam-airplane-hand.jpeg`}
-            alt="Hand near airplane window"
-            className="img-card h-44 md:h-56"
+            alt="Hand by airplane window"
+            className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
           />
           <img
             src={`${import.meta.env.BASE_URL}images/fam-jetski.jpg`}
             alt="Family riding a jetski"
-            className="hidden md:block img-card h-44 md:h-56 col-span-2"
+            className="hidden md:block rounded-xl shadow-lg object-cover w-full h-44 md:h-56 col-span-2"
           />
         </div>
       </div>
@@ -382,30 +458,28 @@ function Family({ t }) {
 
 function About({ t }) {
   return (
-    <section id="about" className="section-about py-16 text-center">
-      <div className="container-wide">
+    <section id="about" className="yt-white py-16">
+      <div className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>
           {t.about.title}
         </h2>
-        <p className="mb-8 text-gray-700 max-w-2xl mx-auto">
-          {t.about.text}
-        </p>
+        <p className="mb-8 text-gray-700 max-w-2xl mx-auto">{t.about.text}</p>
 
         <div className="grid md:grid-cols-3 gap-6">
           <img
             src={`${import.meta.env.BASE_URL}images/about-centralpark.jpg`}
             alt="Central Park"
-            className="hidden md:block img-card h-56 md:h-64"
+            className="hidden md:block rounded-xl shadow-md object-cover h-56 md:h-64 w-full"
           />
           <img
             src={`${import.meta.env.BASE_URL}images/about-eiffel.jpg`}
             alt="Eiffel Tower"
-            className="hidden md:block img-card h-56 md:h-64"
+            className="hidden md:block rounded-xl shadow-md object-cover h-56 md:h-64 w-full"
           />
           <img
             src={`${import.meta.env.BASE_URL}images/about-canyon.jpg`}
             alt="Canyon"
-            className="img-card h-56 md:h-64"
+            className="rounded-xl shadow-md object-cover h-56 md:h-64 w-full"
           />
         </div>
       </div>
@@ -414,20 +488,25 @@ function About({ t }) {
 }
 
 function Contact({ t }) {
+  const BTN =
+    "inline-flex items-center justify-center gap-2 bg-[#E76F51] text-white px-6 py-3 rounded-lg shadow " +
+    "hover:bg-[#d65b42] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 " +
+    "focus-visible:ring-[#E76F51] focus-visible:ring-offset-[#1D3557]";
+
   return (
-    <section id="contact" className="section-contact py-16 text-white text-center">
-      <div className="container-wide">
+    <section id="contact" className="yt-navy py-16 text-white">
+      <div className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold mb-4">{t.contact.title}</h2>
         <p className="mb-6 opacity-90">{t.contact.text}</p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
           {/* Email (visible) */}
-          <a href="mailto:office@youtravel.ro" className="btn-coral" aria-label="Email YouTravel">
+          <a href="mailto:office@youtravel.ro" className={BTN}>
             📧 {t.contact.email}: <span className="font-semibold">office@youtravel.ro</span>
           </a>
 
           {/* Phone (visible) */}
-          <a href="tel:+40720377378" className="btn-coral" aria-label="Call YouTravel">
+          <a href="tel:+40720377378" className={BTN}>
             📞 {t.contact.phone}: <span className="font-semibold">+40 720 377 378</span>
           </a>
 
@@ -436,8 +515,7 @@ function Contact({ t }) {
             href="https://wa.me/40720377378"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-coral"
-            aria-label="WhatsApp YouTravel"
+            className={BTN}
           >
             💬 {t.contact.whatsapp}
           </a>
@@ -451,7 +529,7 @@ function Footer({ lang }) {
   const path = lang === "ro" ? "/ro/privacy" : "/privacy";
   return (
     <footer className="bg-gray-900 text-white py-6">
-      <div className="container-wide flex flex-col items-center gap-4 text-center">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-4 text-center">
         {/* First row: © + Privacy */}
         <div className="flex items-center gap-4">
           <p>© {new Date().getFullYear()} YouTravel</p>

@@ -1,63 +1,51 @@
+/* Tailwind base (keep if you're using Tailwind) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ---- Force LIGHT mode everywhere (prevents Android Chrome auto darkening) ---- */
-:root {
-  color-scheme: light; /* tell the UA we are light-only */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: light; /* ignore dark preference */
-  }
-}
-
+/* ------------------------------
+   Global light-mode enforcement
+   (prevents Android/Chrome from auto-darkening)
+--------------------------------*/
 html, body {
-  background: #ffffff; /* global white background */
+  background-color: #ffffff !important;
+  color-scheme: light !important;
+  -webkit-text-size-adjust: 100%;
 }
 
-/* ---- Reusable utilities ---- */
-.container-wide {
-  @apply max-w-6xl mx-auto px-4;
+/* ------------------------------
+   Utility classes for stable colors
+--------------------------------*/
+.yt-header {
+  /* Solid white header everywhere (no translucent grey on mobile) */
+  background-color: #ffffff !important;
+  backdrop-filter: none !important;
 }
 
-.btn-coral {
-  @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg shadow text-white;
-  background-color: #E76F51;
-}
-.btn-coral:hover {
-  background-color: #d65b42;
-}
-.btn-coral:focus-visible {
-  outline: 2px solid #E76F51;
-  outline-offset: 2px;
+.yt-white {
+  /* Pure white section bg */
+  background-color: #ffffff !important;
 }
 
-.img-card {
-  @apply rounded-xl shadow-lg object-cover w-full;
+.yt-peach {
+  /* Family section bg — exact same as desktop */
+  background-color: #FFF7ED !important;
 }
 
-/* Dim backdrop for mobile drawer */
-.backdrop {
-  background: rgba(0,0,0,0.4);
+.yt-navy {
+  /* Contact section bg */
+  background-color: #1D3557 !important;
 }
 
-/* Ensure section backgrounds are exact on mobile too */
-.section-corporate {
-  background-color: #0F1F36; /* deep navy */
-}
-.section-family {
-  background-color: #FFF7ED; /* peach */
-}
-.section-about {
-  background-color: #FFFFFF; /* white */
-}
-.section-contact {
-  background-color: #1D3557; /* brand navy */
+/* If the OS is in dark mode, still render the site as light */
+@media (prefers-color-scheme: dark) {
+  html, body { background-color: #ffffff !important; color-scheme: light !important; }
+  .yt-header, .yt-white { background-color: #ffffff !important; }
+  .yt-peach { background-color: #FFF7ED !important; }
+  .yt-navy  { background-color: #1D3557 !important; }
 }
 
-/* Header should always be solid white on all devices */
-.header-solid {
-  background-color: #FFFFFF !important;
+/* Optional: a tiny helper for smooth focus rings on buttons/links */
+.focus-ring {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E76F51];
 }
