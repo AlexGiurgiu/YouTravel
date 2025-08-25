@@ -208,13 +208,13 @@ function Header({ t, switchLang, lang }) {
       className="fixed top-0 left-0 w-full z-50 bg-white border-b border-neutral-200"
       // style={{ position: "static" }}  // ensure header is NOT fixed/sticky
     >
-      <div className="container-yt flex items-center justify-between py-5">
+      <div className="container-yt flex items-center justify-between py-2">
         {/* Logo-only brand (button to hero) */}
         <button onClick={() => scrollToId("hero")} className="flex items-center" aria-label="YouTravel">
           <img
             src={`${import.meta.env.BASE_URL}images/logo-youtravel-white.png`}
             alt="YouTravel"
-            className="h-12 md:h-16 w-auto"
+            className="h-12"
           />
         </button>
 
@@ -271,7 +271,7 @@ function Header({ t, switchLang, lang }) {
               <img
                 src={`${import.meta.env.BASE_URL}images/logo-youtravel-white.png`}
                 alt="YouTravel"
-                className="h-12 w-auto"
+                className="h-12"
               />
               <button onClick={() => setMobileOpen(false)} aria-label="Close" className="p-2">
                 ✕

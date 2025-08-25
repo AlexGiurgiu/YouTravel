@@ -14,7 +14,7 @@ export default function PrivacyPage() {
             <img
               src={`${import.meta.env.BASE_URL}images/logo-youtravel-white.png`}
               alt="YouTravel"
-              className="h-12 md:h-16 w-auto"
+              className="h-12"
             />
           </Link>
           <Link to={isEN ? "/" : "/ro"} className="text-sm text-gray-700 hover:text-[#E76F51]">
