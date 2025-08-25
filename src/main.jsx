@@ -441,19 +441,19 @@ function About({ t }) {
   return (
     <section id="about" className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-        {/* Text */}
-        <div>
+        {/* Text first always */}
+        <div className="order-1 md:order-none">
           <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>
             {t.about.title}
           </h2>
 
-          {/* Justified paragraphs */}
+          {/* Paragraphs with justified text */}
           <div className="text-gray-700 space-y-4 mb-8 leading-relaxed text-justify">
             <p>{t.about.p1}</p>
             <p>{t.about.p2}</p>
           </div>
 
-          {/* Bullets in two columns on md+ */}
+          {/* Bullets */}
           <ul className="grid sm:grid-cols-2 gap-3 text-gray-800">
             {t.about.bullets.map((item, i) => (
               <li key={i} className="flex items-start gap-2">
@@ -480,8 +480,8 @@ function About({ t }) {
           </ul>
         </div>
 
-        {/* Image (right on desktop, top on mobile) */}
-        <div className="order-first md:order-none">
+        {/* Image second always */}
+        <div className="order-2 md:order-none">
           <img
             src={`${import.meta.env.BASE_URL}images/about-canyon.jpg`}
             alt="Curated travel experiences"

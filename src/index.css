@@ -3,50 +3,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---- Force light color scheme across devices ---- */
+/* --- Force LIGHT color scheme everywhere --- */
 :root {
-  color-scheme: light;           /* Tell browsers this site is light only */
+  color-scheme: light; /* tells the browser our UI is light-only (forms, etc.) */
 }
 
-/* Explicitly set page background to white */
+/* Explicit white page background */
 html, body, #root {
   background: #ffffff;
+  color: #0a0a0a;
 }
 
-/* When the OS asks for dark, stay light (opt-out of auto-darkening) */
+/* If the OS asks for dark, explicitly stay light */
 @media (prefers-color-scheme: dark) {
   html, body, #root {
     background: #ffffff !important;
     color: #0a0a0a !important;
   }
+  /* Prevent any UA “auto-tinting” of media */
+  img, video, canvas, svg {
+    filter: none !important;
+  }
 }
 
-/* ---- Hard background tokens (cannot be auto-darkened) ---- */
+/* --- Hard background tokens (won’t be auto-darkened) --- */
 .bg-pure-white { background-color: #ffffff !important; }
 .bg-peach      { background-color: #FFF7ED !important; }
 .bg-navy-yt    { background-color: #0F1F36 !important; }
 
-/* Solid header surface - apply only to custom class */
+/* Header surface (non-sticky by default; page controls stickiness) */
 .header-solid {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  right: auto !important;
   background-color: #ffffff !important;
   border-bottom: 1px solid rgba(0,0,0,0.08);
   box-shadow: 0 1px 2px rgba(0,0,0,0.03);
 }
 
-/* Optional: small util to clamp content width */
+/* Optional: utility container used across sections */
 .container-yt {
-  max-width: 72rem; /* 1152px ~ Tailwind's max-w-6xl */
+  max-width: 72rem; /* ~ Tailwind max-w-6xl (1152px) */
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-/* Buttons (same coral across contact CTAs) */
+/* Primary coral CTA button */
 .btn-coral {
   display: inline-flex;
   align-items: center;
@@ -57,9 +58,13 @@ html, body, #root {
   padding: .75rem 1.5rem;
   border-radius: .5rem;
   box-shadow: 0 4px 10px rgba(231,111,81,.25);
+  transition: background-color .15s ease, box-shadow .15s ease;
 }
 .btn-coral:hover { background-color: #d65b42; }
 .btn-coral:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(231,111,81,.35), 0 4px 10px rgba(231,111,81,.25);
 }
+
+/* (Optional) justified text helper if you want to use it anywhere */
+.text-justify { text-align: justify; }

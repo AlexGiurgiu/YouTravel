@@ -12,7 +12,7 @@ export default function PrivacyPage() {
         <div className="max-w-6xl mx-auto flex items-center justify-between py-3 px-4">
           <Link to={isEN ? "/" : "/ro"} className="flex items-center" aria-label="YouTravel">
             <img
-              src={`${import.meta.env.BASE_URL}images/logo-yourtravel-white.png`}
+              src={`${import.meta.env.BASE_URL}images/logo-youtravel-white.png`}
               alt="YouTravel"
               className="h-12 md:h-16 w-auto"
             />

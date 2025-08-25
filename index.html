@@ -7,22 +7,27 @@
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
 
-    <!-- Force light UI on Android/iOS to prevent auto-darkening -->
-    <meta name="color-scheme" content="light" />
-    <meta name="supported-color-schemes" content="light" />
+    <!-- --- Force a light browser UI on mobile (address/status bar) --- -->
     <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
-    <title>YouTravel – Personalized Travel. Anytime, Anywhere.</title>
-    <meta
-      name="description"
-      content="Smart journeys for businesses & families. Corporate travel and bespoke holidays tailored by YouTravel."
-    />
+    <title>YouTravel</title>
+
+    <!-- Make all relative assets work on GitHub Pages subpath -->
+    <base href="%BASE_URL%" />
+
+    <!-- Small tab icon (PNG) -->
+    <link rel="icon" type="image/png" href="images/logo-airplane-white.png" />
+
+    <!-- Optional iOS home-screen icon (uses same png) -->
+    <link rel="apple-touch-icon" href="images/logo-airplane-white.png" />
   </head>
+
   <body>
     <div id="root"></div>
-
-    <!-- IMPORTANT:
-         Use source entry in dev; Vite will rewrite for build (including base=/YouTravel/). -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

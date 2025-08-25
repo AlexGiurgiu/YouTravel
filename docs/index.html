@@ -6,13 +6,29 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
+
+    <!-- --- Force a light browser UI on mobile (address/status bar) --- -->
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
     <title>YouTravel</title>
-    <meta name="description" content="Personalized travel for businesses and families. YouTravel — Corporate Travel, Bespoke Holidays, and 24/7 assistance." />
-    <link rel="icon" href="/favicon.ico" />
-    <script type="module" crossorigin src="/YouTravel/assets/index-BJPObtGU.js"></script>
-    <link rel="stylesheet" crossorigin href="/YouTravel/assets/index-C8CdiV0L.css">
+
+    <!-- Make all relative assets work on GitHub Pages subpath -->
+    <base href="/YouTravel/" />
+
+    <!-- Small tab icon (PNG) -->
+    <link rel="icon" type="image/png" href="images/logo-airplane-white.png" />
+
+    <!-- Optional iOS home-screen icon (uses same png) -->
+    <link rel="apple-touch-icon" href="images/logo-airplane-white.png" />
+    <script type="module" crossorigin src="/YouTravel/assets/index-DUO8HDxC.js"></script>
+    <link rel="stylesheet" crossorigin href="/YouTravel/assets/index-BLI8k8PG.css">
   </head>
-  <body class="bg-white text-gray-900">
+
+  <body>
     <div id="root"></div>
   </body>
 </html>
