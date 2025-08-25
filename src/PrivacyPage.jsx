@@ -23,8 +23,9 @@ export default function PrivacyPage() {
         </div>
       </header>
 
-      <main className="pt-20 pb-16">
-        <div className="max-w-4xl mx-auto px-6 text-gray-800 leading-relaxed text-justify">
+      {/* More breathing room at top/bottom and between blocks */}
+      <main className="pt-24 pb-20">
+        <div className="max-w-4xl mx-auto px-6 text-gray-800 leading-relaxed text-justify space-y-6">
           {isEN ? <EnglishPolicy /> : <RomanianPolicy />}
         </div>
       </main>
@@ -35,34 +36,29 @@ export default function PrivacyPage() {
 /* ---------------- EN ---------------- */
 function EnglishPolicy() {
   return (
-    <div className="space-y-2">
-      <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
+    <div>
+      <h1 className="text-3xl font-bold mb-10">Privacy Policy</h1>
 
-      <div className="space-y-4">
-        <p>
-          We aim to provide travel services while complying with data-protection legislation at the highest professional standards and
-          implementing high standards of confidentiality and transparency regarding the personal data we process in our daily activity. Our
-          core values are full protection and transparency regarding the processing of your personal data within our services.
-        </p>
-        <p>
-          This Privacy Policy describes the categories of personal data we process, how and for what purposes we collect them, situations in
-          which we transfer personal data, and the rights and options you have. It also details how we process personal data to manage client
-          relationships, most often to keep you up to date with the latest offers.
-        </p>
-      </div>
-
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Controller</h2>
-      <p className="mb-2">
-        <span className="font-semibold text-[#1D3557]">YOUR TRAVEL SOLUTIONS SRL</span>, Bucharest, Bd Mircea Veroiu, nr 44, sector 1, Phone: +40720377378,
-        Email:{" "}
-        <a href="mailto:office@youtravel.ro" className="text-[#E76F51] underline hover:opacity-80">
-          office@youtravel.ro
-        </a>
-        , hereinafter “YOU TRAVEL”.
+      <p className="mb-6">
+        We aim to provide travel services while complying with data-protection legislation at the highest professional standards and
+        implementing high standards of confidentiality and transparency regarding the personal data we process in our daily activity. Our
+        core values are full protection and transparency regarding the processing of your personal data within our services.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Categories of Personal Data Processed</h2>
-      <ul className="list-disc list-inside space-y-2 mb-2">
+      <p className="mb-6">
+        This Privacy Policy describes the categories of personal data we process, how and for what purposes we collect them, situations in
+        which we transfer personal data, and the rights and options you have. It also details how we process personal data to manage client
+        relationships, most often to keep you up to date with the latest offers.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Controller</h2>
+      <p className="mb-6">
+        <strong>YOUR TRAVEL SOLUTIONS SRL</strong>, Bucharest, Bd Mircea Veroiu, nr 44, sector 1, Phone: +40720377378,
+        Email: office@youtravel.ro, hereinafter “YOU TRAVEL”.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Categories of Personal Data Processed</h2>
+      <ul className="list-disc list-inside space-y-2 mb-6">
         <li>Contact information: name, postal address (including domicile if provided), business address, phone/mobile/fax, email, ID document details.</li>
         <li>Additional information in a contractual context or voluntarily communicated by you (instructions, payments, booking info or access to YOU TRAVEL offers).</li>
         <li>Special categories where necessary for services (e.g., trade-union membership, health data).</li>
@@ -70,8 +66,8 @@ function EnglishPolicy() {
         <li>Browsing data collected through cookies and similar technologies (per Cookies Policy): access date/time, browser/software, OS language, screen resolution, location, pages viewed, time spent on site/pages.</li>
       </ul>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Legal Grounds</h2>
-      <ul className="list-disc list-inside space-y-2 mb-2">
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Legal Grounds</h2>
+      <ul className="list-disc list-inside space-y-2 mb-6">
         <li>Processing necessary for concluding or performing a contract with you.</li>
         <li>Compliance with a legal obligation.</li>
         <li>Your consent.</li>
@@ -80,8 +76,8 @@ function EnglishPolicy() {
         <li>For special categories, processing will occur if, in addition to a general legal ground, explicit consent is obtained.</li>
       </ul>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Purposes of Processing</h2>
-      <ul className="list-disc list-inside space-y-2 mb-2">
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Purposes of Processing</h2>
+      <ul className="list-disc list-inside space-y-2 mb-6">
         <li>Provision of travel or related services.</li>
         <li>Management and administration of our contractual relationship with clients.</li>
         <li>Compliance with legal obligations (e.g., reporting to tax authorities).</li>
@@ -92,24 +88,20 @@ function EnglishPolicy() {
         <li>Any purpose related and/or auxiliary to the above, or for any other purpose for which your personal data were provided, in accordance with applicable law.</li>
       </ul>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Disclosure of Your Data</h2>
-      <div className="space-y-4">
-        <p>
-          We may disclose your personal data to other travel service providers we collaborate with for delivering the services, as well as to public
-          authorities, entities indicated by you (which may be our client or a third party involved), or other entities in the context of providing
-          YOU TRAVEL services (such as insurers). We will ensure that these recipients comply with legal requirements for processing personal data.
-        </p>
-        <p>
-          We may use processors (e.g., IT solutions for business management, accounting solutions, or online tools for administering the website)
-          under data-processing agreements with appropriate clauses. YOU TRAVEL will not provide (sell or rent) your personal data to third parties.
-          We may disclose data to law-enforcement authorities where provided by law or strictly necessary to prevent, detect, or prosecute crimes and
-          fraud, or if otherwise legally required. We may also need to disclose data to competent authorities to protect and defend our rights or
-          property or those of our business partners.
-        </p>
-      </div>
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Disclosure of Your Data</h2>
+      <p className="mb-6">
+        We may disclose your personal data to other travel service providers we collaborate with for delivering the services, as well as to public
+        authorities, entities indicated by you (which may be our client or a third party involved), or other entities in the context of providing
+        YOU TRAVEL services (such as insurers). We will ensure that these recipients comply with legal requirements for processing personal data.
+        We may use processors (e.g., IT solutions for business management, accounting solutions, or online tools for administering the website)
+        under data-processing agreements with appropriate clauses. YOU TRAVEL will not provide (sell or rent) your personal data to third parties.
+        We may disclose data to law-enforcement authorities where provided by law or strictly necessary to prevent, detect, or prosecute crimes and
+        fraud, or if otherwise legally required. We may also need to disclose data to competent authorities to protect and defend our rights or
+        property or those of our business partners.
+      </p>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">International Transfers</h2>
-      <p className="mb-2">
+      <h2 className="text-2xl font-semibold mt-12 mb-6">International Transfers</h2>
+      <p className="mb-6">
         We may transfer your personal data to EEA states or to countries recognized by the European Commission as ensuring an adequate level of
         protection, if necessary for the permitted purposes described above. In exceptional situations, if necessary to provide YOU TRAVEL services,
         we may transfer your personal data to third countries without an adequacy decision. We will ensure such international transfers are subject to
@@ -117,22 +109,18 @@ function EnglishPolicy() {
         provisions. You may contact us for details.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Updating Your Personal Data</h2>
-      <p className="mb-2">
-        If any of your personal data change (e.g., first/last name or email address) or you wish to cancel any request addressed to us, or you learn that we hold any inaccurate personal data about you, please contact us by email at:{" "}
-        <a href="mailto:office@youtravel.ro" className="text-[#E76F51] underline hover:opacity-80">
-          office@youtravel.ro
-        </a>
-        . We will not be liable for any loss resulting from inaccurate, unauthentic, insufficient, or incomplete personal data you provide.
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Updating Your Personal Data</h2>
+      <p className="mb-6">
+        If any of your personal data change (e.g., first/last name or email address) or you wish to cancel any request addressed to us, or you learn that we hold any inaccurate personal data about you, please contact us by email at: <a href="mailto:office@youtravel.ro" className="text-[#1D3557]">office@youtravel.ro</a>. We will not be liable for any loss resulting from inaccurate, unauthentic, insufficient, or incomplete personal data you provide.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Retention</h2>
-      <p className="mb-2">
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Retention</h2>
+      <p className="mb-6">
         YOU TRAVEL has implemented technical and organizational measures for structuring the process and specific criteria for processing your personal data (including according to our archiving procedures). We will cease processing when the data are no longer reasonably necessary for the permitted purposes, or when you withdraw consent (where applicable) and no legitimate and compelling grounds remain that justify further processing by YOU TRAVEL (including a legal obligation to continue storing the data) that prevail over your interests, rights, and freedoms, or when the data are no longer necessary for the establishment, exercise, or defense of legal claims.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Your Rights</h2>
-      <ul className="list-disc list-inside space-y-2 mb-2">
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Your Rights</h2>
+      <ul className="list-disc list-inside space-y-2 mb-6">
         <li>Right to request a copy of your personal data that we hold.</li>
         <li>Right to rectification of any inaccurate or incomplete personal data.</li>
         <li>Right to object to or restrict our use of your personal data.</li>
@@ -141,30 +129,20 @@ function EnglishPolicy() {
         <li>Right to data portability (to request transmission of your personal data to another entity/controller indicated by you).</li>
       </ul>
 
-      <div className="space-y-4">
-        <p>
-          If we discover any breach of personal-data processing that presents a risk to your rights and freedoms, we will inform the Romanian Supervisory Authority (ANSPDCP).
-          If the breach could affect your rights and freedoms in any way, you will be informed without undue delay.
-        </p>
-        <p>
-          To exercise your rights, please contact us: Bd Mircea Veroiu, nr 44, sector 1, Bucharest, Romania · Email:{" "}
-          <a href="mailto:office@youtravel.ro" className="text-[#E76F51] underline hover:opacity-80">
-            office@youtravel.ro
-          </a>{" "}
-          · Phone: +40720377378. To comply with our legal obligations for data security and confidentiality, when you exercise your rights as a data subject we may ask you to prove your identity by providing a copy of an identification document or other information necessary to verify the request comes from the relevant data subject.
-        </p>
-        <p>
-          We will consider any requests or complaints and respond within legal deadlines. If you are not satisfied with our response or believe processing is unlawful, you may lodge a complaint with the Romanian supervisory authority (ANSPDCP): Address: B-dul G-ral. Gheorghe Magheru 28-30, 010336 Bucharest · Phone: +40 318 059 211 / 212 · Email:{" "}
-          <a href="mailto:anspdcp@dataprotection.ro" className="text-[#E76F51] underline hover:opacity-80">
-            anspdcp@dataprotection.ro
-          </a>{" "}
-          · Website:{" "}
-          <a href="https://www.dataprotection.ro" target="_blank" rel="noreferrer" className="text-[#E76F51] underline hover:opacity-80">
-            www.dataprotection.ro
-          </a>
-          .
-        </p>
-      </div>
+      <p className="mb-6">
+        If we discover any breach of personal-data processing that presents a risk to your rights and freedoms, we will inform the Romanian Supervisory Authority (ANSPDCP).
+        If the breach could affect your rights and freedoms in any way, you will be informed without undue delay.
+      </p>
+
+      <p className="mb-6">
+        To exercise your rights, please contact us: Bd Mircea Veroiu, nr 44, sector 1, Bucharest, Romania · Email:
+        <a href="mailto:office@youtravel.ro" className="text-[#1D3557]"> office@youtravel.ro</a> · Phone: +40720377378. To comply with our legal obligations
+        for data security and confidentiality, when you exercise your rights as a data subject we may ask you to prove your identity by providing a copy of an identification document or other information necessary to verify the request comes from the relevant data subject.
+      </p>
+
+      <p className="mb-6">
+        We will consider any requests or complaints and respond within legal deadlines. If you are not satisfied with our response or believe processing is unlawful, you may lodge a complaint with the Romanian supervisory authority (ANSPDCP): Address: B-dul G-ral. Gheorghe Magheru 28-30, 010336 Bucharest · Phone: +40 318 059 211 / 212 · Email: anspdcp@dataprotection.ro · Website: www.dataprotection.ro.
+      </p>
     </div>
   );
 }
@@ -172,37 +150,31 @@ function EnglishPolicy() {
 /* ---------------- RO ---------------- */
 function RomanianPolicy() {
   return (
-    <div className="space-y-2">
-      <h1 className="text-3xl font-bold mb-6">Politica de Confidențialitate</h1>
+    <div>
+      <h1 className="text-3xl font-bold mb-10">Politica de Confidențialitate</h1>
 
-      <div className="space-y-4">
-        <p>
-          Dorim să oferim servicii turistice dar și să respectăm legislația din domeniul protecției datelor la cele mai înalte standarde profesionale, dar și să
-          implementăm cele mai înalte standarde de confidențialitate și transparență cu privire la datele cu caracter personal pe care le prelucrăm în activitatea
-          noastră curentă. Valorile noastre fundamentale sunt definite de protecția și transparență totală în ceea ce privește prelucrarea datelor dumneavoastră cu
-          caracter personal în cadrul prestării serviciilor noastre.
-        </p>
-        <p>
-          Politica de Prelucrare a Datelor cu Caracter Personal descrie categoriile datelor dumneavoastră cu caracter personal pe care le prelucrăm, modalitățile și
-          scopurile în care le colectăm, în ce situații transferăm date cu caracter personal, precum și drepturile și opțiunile de care dispuneți în acest sens. În
-          același timp, Politica de Prelucrare a Datelor cu Caracter Personal detaliază modul în care prelucrăm datele cu caracter personal în gestionarea relației cu
-          clienții, cel mai adesea pentru a vă ține la curent cu cele mai recente oferte.
-        </p>
-      </div>
-
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Operatorul datelor</h2>
-      <p className="mb-2">
-        Operatorul în relația cu datele dvs. cu caracter personal este Societatea{" "}
-        <span className="font-semibold text-[#1D3557]">YOUR TRAVEL SOLUTIONS SRL</span>, cu sediul în București,
-        Bd Mircea Veroiu, nr 44, sector 1, tel. +40720377378, e-mail{" "}
-        <a href="mailto:office@youtravel.ro" className="text-[#E76F51] underline hover:opacity-80">
-          office@youtravel.ro
-        </a>
-        , denumită generic YOU TRAVEL.
+      <p className="mb-6">
+        Dorim să oferim servicii turistice dar și să respectăm legislația din domeniul protecției datelor la cele mai înalte standarde profesionale, dar și să
+        implementăm cele mai înalte standarde de confidențialitate și transparență cu privire la datele cu caracter personal pe care le prelucrăm în activitatea
+        noastră curentă. Valorile noastre fundamentale sunt definite de protecția și transparență totală în ceea ce privește prelucrarea datelor dumneavoastră cu
+        caracter personal în cadrul prestării serviciilor noastre.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Categorii de date cu caracter personal prelucrate</h2>
-      <ul className="list-disc list-inside space-y-2 mb-2">
+      <p className="mb-6">
+        Politica de Prelucrare a Datelor cu Caracter Personal descrie categoriile datelor dumneavoastră cu caracter personal pe care le prelucrăm, modalitățile și
+        scopurile în care le colectăm, în ce situații transferăm date cu caracter personal, precum și drepturile și opțiunile de care dispuneți în acest sens. În
+        același timp, Politica de Prelucrare a Datelor cu Caracter Personal detaliază modul în care prelucrăm datele cu caracter personal în gestionarea relației cu
+        clienții, cel mai adesea pentru a vă ține la curent cu cele mai recente oferte.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Operatorul datelor</h2>
+      <p className="mb-6">
+        Operatorul în relația cu datele dvs. cu caracter personal este Societatea <strong>YOUR TRAVEL SOLUTIONS SRL</strong>, cu sediul în București,
+        Bd Mircea Veroiu, nr 44, sector 1, tel. +40720377378, e-mail office@youtravel.ro, denumită generic YOU TRAVEL.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Categorii de date cu caracter personal prelucrate</h2>
+      <ul className="list-disc list-inside space-y-2 mb-6">
         <li>Informații de contact, cum ar fi numele, adresa poștală (inclusiv domiciliu, dacă a fost comunicată), adresa profesională, numărul de telefon, telefon mobil, fax, e-mail, date din documente de identitate;</li>
         <li>Informații suplimentare prelucrate în context contractual sau comunicate voluntar (instrucțiuni acordate, plăți efectuate, orice alte informații privind rezervări sau accesarea unor oferte ale YOU TRAVEL);</li>
         <li>În contextul serviciilor prestate putem colecta și prelucra categorii speciale de date (ex.: apartenență la sindicat, date de sănătate);</li>
@@ -210,8 +182,8 @@ function RomanianPolicy() {
         <li>Date din navigarea pe site colectate prin cookie-uri și tehnologii similare (conform Politicii cookies): data/ora accesării, software/browser, sistemul de operare și limba, rezoluția ecranului, locația, istoricul accesărilor și timpul petrecut.</li>
       </ul>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Temeiuri juridice</h2>
-      <ul className="list-disc list-inside space-y-2 mb-2">
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Temeiuri juridice</h2>
+      <ul className="list-disc list-inside space-y-2 mb-6">
         <li>Prelucrarea este necesară pentru încheierea sau executarea unui contract la care sunteți parte;</li>
         <li>Respectarea unei obligații legale a operatorului;</li>
         <li>Prelucrarea în temeiul consimțământului dvs.;</li>
@@ -220,8 +192,8 @@ function RomanianPolicy() {
         <li>În cazul categoriilor speciale de date: consimțământ explicit, pe lângă un temei general.</li>
       </ul>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Scopurile prelucrării</h2>
-      <ul className="list-disc list-inside space-y-2 mb-2">
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Scopurile prelucrării</h2>
+      <ul className="list-disc list-inside space-y-2 mb-6">
         <li>Oferirea de servicii turistice sau asociate acestora;</li>
         <li>Gestionarea și administrarea relației contractuale cu clienții;</li>
         <li>Respectarea obligațiilor legale (ex.: raportări către autorități fiscale);</li>
@@ -232,50 +204,42 @@ function RomanianPolicy() {
         <li>Orice scop aferent și/sau auxiliar celor de mai sus ori orice alt scop pentru care datele au fost furnizate, cu respectarea legislației aplicabile.</li>
       </ul>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Dezvăluirea datelor</h2>
-      <div className="space-y-4">
-        <p>
-          Putem dezvălui datele cu caracter personal către alți prestatori de servicii turistice cu care colaborăm pentru furnizarea serviciilor, către autorități publice,
-          entități indicate de dvs. (care poate fi clientul nostru sau o terță parte implicată) sau alte entități în contextul furnizării serviciilor YOU TRAVEL (cum ar fi:
-          furnizori de servicii de asigurare etc.). Ne vom asigura că destinatarii acestor date respectă cerințele legale.
-        </p>
-        <p>
-          Putem utiliza persoane împuternicite (furnizori de soluții IT, contabilitate, soft-uri online) pe baza unor acorduri de prelucrare a datelor personale, care includ clauze specifice. YOU TRAVEL nu va furniza (prin
-          vânzare sau închiriere) către terți datele dvs. Este posibil să divulgăm date autorităților care aplică legea, în măsura prevăzută de lege sau strict necesar pentru
-          prevenirea/detectarea/urmărirea penală a infracțiunilor și fraudelor sau dacă suntem altfel obligați prin lege; putem divulga și către autorități competente pentru
-          protejarea și apărarea drepturilor sau bunurilor noastre ori ale partenerilor.
-        </p>
-      </div>
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Dezvăluirea datelor</h2>
+      <p className="mb-6">
+        Putem dezvălui datele cu caracter personal către alți prestatori de servicii turistice cu care colaborăm pentru furnizarea serviciilor, către autorități publice,
+        entități indicate de dvs. (care poate fi clientul nostru sau o terță parte implicată) sau alte entități în contextul furnizării serviciilor YOU TRAVEL (cum ar fi:
+        furnizori de servicii de asigurare etc.). Ne vom asigura că destinatarii acestor date respectă cerințele legale. Putem utiliza persoane împuternicite (furnizori de
+        soluții IT, contabilitate, soft-uri online) pe baza unor acorduri de prelucrare a datelor personale, care includ clauze specifice. YOU TRAVEL nu va furniza (prin
+        vânzare sau închiriere) către terți datele dvs. Este posibil să divulgăm date autorităților care aplică legea, în măsura prevăzută de lege sau strict necesar pentru
+        prevenirea/detectarea/urmărirea penală a infracțiunilor și fraudelor sau dacă suntem altfel obligați prin lege; putem divulga și către autorități competente pentru
+        protejarea și apărarea drepturilor sau bunurilor noastre ori ale partenerilor.
+      </p>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Transferul datelor în străinătate</h2>
-      <p className="mb-2">
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Transferul datelor în străinătate</h2>
+      <p className="mb-6">
         Putem transfera datele în state din Spațiul Economic European sau în state recunoscute de Comisia Europeană ca asigurând un nivel adecvat de protecție, dacă acest
         transfer este necesar pentru scopurile permise. În situații excepționale, dacă este necesar pentru serviciile YOU TRAVEL, putem transfera date în state terțe fără
         decizie de adecvare, asigurând măsuri de protecție adecvate (ex.: Clauze Contractuale Standard) conform GDPR sau altor dispoziții legale aplicabile. Ne puteți
         contacta pentru informații suplimentare privind aceste măsuri.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Actualizarea datelor</h2>
-      <p className="mb-2">
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Actualizarea datelor</h2>
+      <p className="mb-6">
         Dacă datele furnizate se modifică (ex.: prenume/nume sau e-mail) sau doriți să anulați o solicitare ori aflați că deținem date incorecte despre dvs., vă rugăm să ne
-        contactați la:{" "}
-        <a href="mailto:office@youtravel.ro" className="text-[#E76F51] underline hover:opacity-80">
-          office@youtravel.ro
-        </a>
-        . Nu vom fi răspunzători pentru nicio pierdere rezultată din
+        contactați la: <a href="mailto:office@youtravel.ro" className="text-[#1D3557]">office@youtravel.ro</a>. Nu vom fi răspunzători pentru nicio pierdere rezultată din
         date incorecte/neautentice/insuficiente/incomplete furnizate de dvs.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Durata de stocare</h2>
-      <p className="mb-2">
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Durata de stocare</h2>
+      <p className="mb-6">
         YOU TRAVEL a implementat măsuri tehnice și organizatorice pentru organizarea procesului și criterii specifice pentru prelucrarea datelor personale (inclusiv conform
         procedurilor noastre de arhivare). Vom înceta prelucrarea datelor atunci când acestea nu mai sunt necesare rezonabil pentru scopurile permise sau când vă retrageți
         consimțământul (dacă este cazul) și nu mai există motive legitime care să justifice prelucrarea în continuare (inclusiv obligația legală a YOU TRAVEL de a continua
         stocarea), ori când datele nu mai sunt necesare pentru constatarea, exercitarea sau apărarea unui drept în instanță.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-8 pb-1 mb-4 border-b border-gray-200">Drepturile dvs.</h2>
-      <ul className="list-disc list-inside space-y-2 mb-2">
+      <h2 className="text-2xl font-semibold mt-12 mb-6">Drepturile dvs.</h2>
+      <ul className="list-disc list-inside space-y-2 mb-6">
         <li>Dreptul de a solicita o copie a datelor personale pe care le deținem;</li>
         <li>Dreptul la rectificarea datelor incorecte sau incomplete;</li>
         <li>Dreptul la opoziție sau restricționarea prelucrării;</li>
@@ -284,31 +248,20 @@ function RomanianPolicy() {
         <li>Dreptul la portabilitatea datelor (transmiterea datelor către un alt operator indicat de dvs.).</li>
       </ul>
 
-      <div className="space-y-4">
-        <p>
-          Dacă identificăm o încălcare a securității datelor personale care prezintă un risc pentru drepturile și libertățile dvs., vom informa Autoritatea Națională de
-          Supraveghere a Prelucrării Datelor cu Caracter Personal. Dacă încălcarea v-ar putea afecta, vă vom informa fără întârziere nejustificată.
-        </p>
-        <p>
-          Pentru exercitarea drepturilor: Bd Mircea Veroiu, nr 44, sector 1, București, România · E-mail:{" "}
-          <a href="mailto:office@youtravel.ro" className="text-[#E76F51] underline hover:opacity-80">
-            office@youtravel.ro
-          </a>{" "}
-          · Telefon: +40720377378. Pentru securitate, vă putem solicita dovada identității.
-        </p>
-        <p>
-          Dacă nu sunteți mulțumit de răspunsul nostru sau considerați că prelucrarea este contrară legii, puteți depune plângere la ANSPDCP:
-          B-dul G-ral. Gheorghe Magheru 28-30, 010336 București, România · Telefon: +40 318 059 211 / 212 · E-mail:{" "}
-          <a href="mailto:anspdcp@dataprotection.ro" className="text-[#E76F51] underline hover:opacity-80">
-            anspdcp@dataprotection.ro
-          </a>{" "}
-          · Website:{" "}
-          <a href="https://www.dataprotection.ro" target="_blank" rel="noreferrer" className="text-[#E76F51] underline hover:opacity-80">
-            www.dataprotection.ro
-          </a>
-          .
-        </p>
-      </div>
+      <p className="mb-6">
+        Dacă identificăm o încălcare a securității datelor personale care prezintă un risc pentru drepturile și libertățile dvs., vom informa Autoritatea Națională de
+        Supraveghere a Prelucrării Datelor cu Caracter Personal. Dacă încălcarea v-ar putea afecta, vă vom informa fără întârziere nejustificată.
+      </p>
+
+      <p className="mb-6">
+        Pentru exercitarea drepturilor: Bd Mircea Veroiu, nr 44, sector 1, București, România · E-mail: office@youtravel.ro · Telefon: +40720377378. Pentru securitate,
+        vă putem solicita dovada identității.
+      </p>
+
+      <p className="mb-6">
+        Dacă nu sunteți mulțumit de răspunsul nostru sau considerați că prelucrarea este contrară legii, puteți depune plângere la ANSPDCP:
+        B-dul G-ral. Gheorghe Magheru 28-30, 010336 București, România · Telefon: +40 318 059 211 / 212 · E-mail: anspdcp@dataprotection.ro · Website: www.dataprotection.ro.
+      </p>
     </div>
   );
 }
