@@ -67,7 +67,7 @@ const T = {
   },
   ro: {
     headline: "Călătorii personalizate. Oriunde, oricând.",
-    subheadline: "Călătorii inteligente pentru afaceri și familii.",
+    subheadline: "Călătorii fără griji pentru afaceri și familii.",
     nav: {
       corporate: "Corporate Travel",
       family: "Vacanțe Personalizate",
