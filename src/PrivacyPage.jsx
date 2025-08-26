@@ -3,21 +3,21 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function PrivacyPage() {
   const { pathname } = useLocation();
-  const isEN = !pathname.startsWith("/ro");
+  const isEN = pathname.startsWith("/en");
 
   return (
     <div className="min-h-screen bg-white">
       {/* Header: logo-only, clickable */}
       <header className="fixed top-0 left-0 w-full z-50 bg-white border-b border-neutral-200">
-        <div className="max-w-6xl mx-auto flex items-center justify-between py-3 px-4">
+        <div className="max-w-6xl mx-auto flex items-center justify-between py-2 px-4">
           <Link to={isEN ? "/" : "/ro"} className="flex items-center" aria-label="YouTravel">
             <img
-              src={`${import.meta.env.BASE_URL}images/logo-youtravel-white.png`}
+              src={`${import.meta.env.BASE_URL}images/logo-youtravel-white.webp`}
               alt="YouTravel"
               className="h-12"
             />
           </Link>
-          <Link to={isEN ? "/" : "/ro"} className="text-sm text-gray-700 hover:text-[#E76F51]">
+          <Link to={isEN ? "/en" : "/"} className="text-sm text-gray-700 hover:text-[#E76F51]">
             {isEN ? "Back to Home" : "Înapoi la început"}
           </Link>
         </div>

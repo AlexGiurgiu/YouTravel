@@ -40,7 +40,7 @@ const T = {
       text:
         "Family time is precious — and holidays should be stress-free. We design personalized escapes that match your style, budget, and dreams.",
       b1: "We create tailor-made itineraries",
-      b2: "We select handpicked destinations worldwide",
+      b2: "We design holidays for the joy of every family member",
       b3: "We ensure the best price–quality balance",
       b4: "We support you from planning to your safe return — including travel health insurance",
     },
@@ -84,11 +84,11 @@ const T = {
       b4: "Asigurăm asistență permanentă",
     },
     fam: {
-      title: "Vacanțe Familiale Personalizate",
+      title: "Vacanțe pentru familia ta",
       text:
         "Timpul petrecut cu familia este prețios — iar vacanțele trebuie să fie fără griji. Noi creăm experiențe adaptate stilului, bugetului și viselor voastre.",
       b1: "Creăm itinerarii personalizate",
-      b2: "Selectăm destinații unice din întreaga lume",
+      b2: "Creăm vacanțe pentru bucuria fiecărui membru al familiei",
       b3: "Asigurăm cel mai bun raport calitate–preț",
       b4: "Oferim suport de la planificare până la întoarcerea acasă — inclusiv asigurări medicale de călătorie",
     },
@@ -119,27 +119,35 @@ const T = {
 function useLang() {
   const navigate = useNavigate();
   const { pathname, hash } = useLocation();
+
   const [lang, setLang] = useState(() => {
-    const saved = localStorage.getItem("lang");
+    // URL wins first
+    if (pathname.startsWith("/en")) return "en";
     if (pathname.startsWith("/ro")) return "ro";
-    return saved === "ro" ? "ro" : "en";
+
+    // Fallback to saved choice
+    const saved = localStorage.getItem("lang");
+    if (saved === "en") return "en";
+
+    // Default: Romanian
+    return "ro";
   });
 
-  // Align URL to selected language on first load (root only)
+  // Align root path to chosen lang (RO -> "/", EN -> "/en")
   useEffect(() => {
-    const desired = lang === "ro" ? "/ro" : "/";
-    const atRoot = pathname === "/" || pathname === "/ro";
-    if (atRoot && !pathname.startsWith(desired)) {
+    const roots = ["/", "/en", "/ro"];
+    const desired = lang === "en" ? "/en" : "/"; // RO lives at "/"
+    if (roots.includes(pathname) && pathname !== desired) {
       navigate(desired + (hash || ""), { replace: true });
     }
-    // eslint-disable-next-line
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lang]);
 
   const switchLang = (next) => {
     localStorage.setItem("lang", next);
     setLang(next);
     const section = (typeof window !== "undefined" && window.location.hash) || "";
-    navigate((next === "ro" ? "/ro" : "/") + section);
+    navigate((next === "en" ? "/en" : "/") + section);
   };
 
   return { lang, t: T[lang], switchLang };
@@ -212,7 +220,7 @@ function Header({ t, switchLang, lang }) {
         {/* Logo-only brand (button to hero) */}
         <button onClick={() => scrollToId("hero")} className="flex items-center" aria-label="YouTravel">
           <img
-            src={`${import.meta.env.BASE_URL}images/logo-youtravel-white.png`}
+            src={`${import.meta.env.BASE_URL}images/logo-youtravel-white.webp`}
             alt="YouTravel"
             className="h-12"
           />
@@ -233,22 +241,21 @@ function Header({ t, switchLang, lang }) {
               aria-haspopup="listbox"
               aria-expanded={openLang}
             >
-              <span role="img" aria-label="language">🌐</span>
-              <span>{lang === "ro" ? "Limba (română)" : "Language"}</span>
+              🌐 RO | EN
             </button>
             {openLang && (
               <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded-lg border border-gray-200 overflow-hidden">
-                <button
-                  onClick={() => { setOpenLang(false); switchLang("en"); }}
-                  className="block w-full text-left px-3 py-2 hover:bg-gray-50"
-                >
-                  EN
-                </button>
                 <button
                   onClick={() => { setOpenLang(false); switchLang("ro"); }}
                   className="block w-full text-left px-3 py-2 hover:bg-gray-50"
                 >
                   RO
+                </button>
+                <button
+                  onClick={() => { setOpenLang(false); switchLang("en"); }}
+                  className="block w-full text-left px-3 py-2 hover:bg-gray-50"
+                >
+                  EN
                 </button>
               </div>
             )}
@@ -269,7 +276,7 @@ function Header({ t, switchLang, lang }) {
           <div className="container-yt h-full flex flex-col">
             <div className="flex items-center justify-between py-4">
               <img
-                src={`${import.meta.env.BASE_URL}images/logo-youtravel-white.png`}
+                src={`${import.meta.env.BASE_URL}images/logo-youtravel-white.webp`}
                 alt="YouTravel"
                 className="h-12"
               />
@@ -327,7 +334,7 @@ function Hero({ t }) {
     <section id="hero" className="relative min-h-[78vh] md:min-h-[92vh]">
       {/* Background */}
       <img
-        src={`${import.meta.env.BASE_URL}images/hero-skyline.jpg`}
+        src={`${import.meta.env.BASE_URL}images/hero-skyline.webp`}
         alt="City skyline at dusk"
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -370,20 +377,20 @@ function Corporate({ t }) {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <img
-            src={`${import.meta.env.BASE_URL}images/corp-skyline.jpg`}
+            src={`${import.meta.env.BASE_URL}images/corp-skyline.webp`}
             alt="Corporate travel in major city skyline"
             className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
             loading="lazy"
           />
           <img
-            src={`${import.meta.env.BASE_URL}images/corp-rooftop.jpg`}
+            src={`${import.meta.env.BASE_URL}images/corp-rooftop.webp`}
             alt="Business rooftop meeting"
             className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
             loading="lazy"
           />
           <img
-            src={`${import.meta.env.BASE_URL}images/corp-night.jpg`}
-            alt="Night city travel"
+            src={`${import.meta.env.BASE_URL}images/corp-night.webp`}
+            alt="Night city skyline with skyscrapers"
             className="hidden md:block rounded-xl shadow-lg object-cover w-full h-44 md:h-56 col-span-2"
             loading="lazy"
           />
@@ -405,7 +412,7 @@ function Family({ t }) {
           <p className="mb-5 text-gray-800">{t.fam.text}</p>
           <ul className="space-y-2 text-gray-800">
             <li>🗺️ {t.fam.b1}</li>
-            <li>🌍 {t.fam.b2}</li>
+            <li>👨‍👩‍👧‍👦 {t.fam.b2}</li>
             <li>💡 {t.fam.b3}</li>
             <li>🛡️ {t.fam.b4}</li>
           </ul>
@@ -414,19 +421,19 @@ function Family({ t }) {
         {/* Photos second on mobile */}
         <div className="order-2 grid grid-cols-2 gap-4">
           <img
-            src={`${import.meta.env.BASE_URL}images/fam-pineapple.jpg`}
+            src={`${import.meta.env.BASE_URL}images/fam-pineapple.webp`}
             alt="Tropical pineapple drink on the beach"
             className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
             loading="lazy"
           />
           <img
-            src={`${import.meta.env.BASE_URL}images/fam-airplane-hand.jpeg`}
+            src={`${import.meta.env.BASE_URL}images/fam-airplane-hand.webp`}
             alt="Hand holding a plane toy by the airplane window"
             className="rounded-xl shadow-lg object-cover w-full h-44 md:h-56"
             loading="lazy"
           />
           <img
-            src={`${import.meta.env.BASE_URL}images/fam-jetski.jpg`}
+            src={`${import.meta.env.BASE_URL}images/fam-jetski.webp`}
             alt="Family riding a jetski"
             className="hidden md:block rounded-xl shadow-lg object-cover w-full h-44 md:h-56 col-span-2"
             loading="lazy"
@@ -483,7 +490,7 @@ function About({ t }) {
         {/* Image second always */}
         <div className="order-2 md:order-none">
           <img
-            src={`${import.meta.env.BASE_URL}images/about-canyon.jpg`}
+            src={`${import.meta.env.BASE_URL}images/about-canyon.webp`}
             alt="Curated travel experiences"
             className="rounded-xl shadow-lg object-cover w-full h-64 md:h-[420px]"
           />
