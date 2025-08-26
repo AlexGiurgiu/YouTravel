@@ -367,7 +367,7 @@ function Corporate({ t }) {
       <div className="container-yt grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 className="text-3xl font-bold mb-4">{t.corp.title}</h2>
-          <p className="mb-5 opacity-90">{t.corp.text}</p>
+          <p className="mb-5 opacity-90 text-justify">{t.corp.text}</p>
           <ul className="space-y-2">
             <li>✔️ {t.corp.b1}</li>
             <li>🎉 {t.corp.b2}</li>
@@ -409,7 +409,7 @@ function Family({ t }) {
           <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>
             {t.fam.title}
           </h2>
-          <p className="mb-5 text-gray-800">{t.fam.text}</p>
+          <p className="mb-5 text-gray-800 text-justify">{t.fam.text}</p>
           <ul className="space-y-2 text-gray-800">
             <li>🗺️ {t.fam.b1}</li>
             <li>👨‍👩‍👧‍👦 {t.fam.b2}</li>
