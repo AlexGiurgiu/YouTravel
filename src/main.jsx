@@ -612,7 +612,7 @@ function AppRouter() {
 // --- Mount (GitHub Pages: use basename)
 const container = document.getElementById("root");
 createRoot(container).render(
-  <BrowserRouter basename="/">
+  <BrowserRouter basename={import.meta.env.BASE_URL}>
     <ScrollToTop />
     <AppRouter />
   </BrowserRouter>
