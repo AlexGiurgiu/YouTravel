@@ -47,7 +47,7 @@ const T = {
     about: {
       title: "Why Travel with Us?",
       p1: "At YouTravel, we believe journeys should be effortless and personal. Unlike agencies that only sell packages, we act as your travel consultant—listening first, then creating solutions that truly fit your needs.",
-      p2: "Our founder brings over 13 years of experience in leading travel agencies: she has travelled across three continents, organized large-scale corporate events and meticulously planned holidays. From hotels and flights to rental cars, we handle every detail, represent you in any dispute with providers, and stay available 24/7—so your only focus is enjoying the journey.",
+      p2: "Our founder has over 13 years of experience in the travel industry, working within specialized travel agencies. She has traveled across three continents and has organized numerous large-scale corporate events, as well as tailor-made vacations for clients. From hotels and flights to rental cars, we handle every detail, represent you in any dispute with providers, and stay available 24/7—so your only focus is enjoying the journey.",
       bullets: [
         "We listen first, then tailor the right solution",
         "13+ years experience in travel & events",
@@ -95,7 +95,7 @@ const T = {
     about: {
       title: "De ce să călătoriți cu noi?",
       p1: "La YouTravel, credem că fiecare călătorie trebuie să fie fără griji și personalizată. Spre deosebire de agențiile care vând doar pachete standard, noi acționăm ca un consultant de călătorii — ascultăm mai întâi și apoi construim soluții care vi se potrivesc cu adevărat.",
-      p2: "Fondatoarea noastră are peste 13 ani de experiență în conducerea agențiilor de turism: a călătorit pe trei continente, a organizat evenimente corporate de amploare și a planificat vacanțe meticulos. De la hoteluri și zboruri la mașini de închiriat, ne ocupăm de fiecare detaliu, vă reprezentăm în orice dispută cu furnizorii și suntem disponibili 24/7 — astfel încât singurul vostru focus să fie să vă bucurați de călătorie.",
+      p2: "Fondatoarea noastră are peste 13 ani de experiență în domeniul turismului, lucrând în cadrul agențiilor de profil. A călătorit pe trei continente și a organizat numeroase evenimente corporate de amploare, alături de vacanțe personalizate pentru clienți. De la hoteluri și zboruri la mașini de închiriat, ne ocupăm de fiecare detaliu, vă reprezentăm în orice dispută cu furnizorii și suntem disponibili 24/7 — astfel încât singurul vostru focus să fie să vă bucurați de călătorie.",
       bullets: [
         "Ascultăm mai întâi, apoi construim soluția potrivită",
         "13+ ani experiență în turism & evenimente",
