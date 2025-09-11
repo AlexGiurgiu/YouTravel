@@ -11,6 +11,8 @@ import {
 } from "react-router-dom";
 import PrivacyPage from "./PrivacyPage";
 import ScrollToTop from "./ScrollToTop";
+import { FaWhatsapp, FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaPaperPlane } from "react-icons/fa";
 
 // --- Theme tokens (kept for inline color needs)
 const COLORS = { navy: "#1D3557", coral: "#E76F51" };
@@ -350,9 +352,13 @@ function Hero({ t }) {
             {t.subheadline}
           </p>
           {/* Button back to normal placement */}
-          <div className="mt-8">
-            <button className="btn-coral" onClick={() => scrollToId("contact")}>
-              ✈️ {t.nav.contact}
+          <div className="mt-8 flex justify-start">
+            <button
+              className="btn-coral inline-flex items-center gap-2"
+              onClick={() => scrollToId("contact")}
+            >
+              <FaPaperPlane className="text-lg" aria-hidden="true" />
+              <span>{t.nav.contact}</span>
             </button>
           </div>
         </div>
@@ -501,7 +507,8 @@ function About({ t }) {
 }
 
 function Contact({ t }) {
-  const BTN = "btn-coral";
+  const BTN =
+    "inline-flex items-center gap-2 px-4 py-2 rounded-lg shadow hover:opacity-90 transition";
 
   return (
     <section id="contact" className="bg-navy-yt py-16 text-white">
@@ -511,13 +518,15 @@ function Contact({ t }) {
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
           {/* Email */}
-          <a href="mailto:office@youtravel.ro" className={BTN}>
-            📧 {t.contact.email}: <span className="font-semibold">office@youtravel.ro</span>
+          <a href="mailto:office@youtravel.ro" className={`${BTN} bg-blue-600 text-white`}>
+            <FaEnvelope className="text-lg" />
+            <span className="font-semibold">office@youtravel.ro</span>
           </a>
 
           {/* Phone */}
-          <a href="tel:+40720377378" className={BTN}>
-            📞 {t.contact.phone}: <span className="font-semibold">+40 720 377 378</span>
+          <a href="tel:+40720377378" className={`${BTN} bg-gray-700 text-white`}>
+            <FaPhone className="text-lg" />
+            <span className="font-semibold">+40 720 377 378</span>
           </a>
 
           {/* WhatsApp */}
@@ -525,9 +534,10 @@ function Contact({ t }) {
             href="https://wa.me/40720377378"
             target="_blank"
             rel="noopener noreferrer"
-            className={BTN}
+            className={`${BTN} bg-green-500 text-white`}
           >
-            💬 {t.contact.whatsapp}
+            <FaWhatsapp className="text-lg" />
+            <span className="font-semibold">WhatsApp</span>
           </a>
         </div>
 
@@ -602,7 +612,7 @@ function AppRouter() {
 // --- Mount (GitHub Pages: use basename)
 const container = document.getElementById("root");
 createRoot(container).render(
-  <BrowserRouter basename={import.meta.env.BASE_URL}>
+  <BrowserRouter basename="/">
     <ScrollToTop />
     <AppRouter />
   </BrowserRouter>

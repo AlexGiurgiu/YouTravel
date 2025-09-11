@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/YouTravel/", // <-- e.g. "/youtravel-site/"
+  base: "/", // <-- e.g. "/youtravel-site/"
 });
