@@ -627,7 +627,6 @@ function AppRouter() {
     <Routes>
       <Route path="/" element={<OnePage t={t} switchLang={switchLang} lang={lang} />} />
       <Route path="/ro" element={<OnePage t={t} switchLang={switchLang} lang={lang} />} />
-      <Route path="/en" element={<OnePage t={t} switchLang={switchLang} lang={lang} />} />
       <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="/ro/privacy" element={<PrivacyPage />} />
       <Route path="*" element={<OnePage t={t} switchLang={switchLang} lang={lang} />} />
