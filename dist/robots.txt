@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://youtravel.ro/sitemap.xml
