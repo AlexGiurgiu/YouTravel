@@ -332,14 +332,42 @@ function Header({ t, switchLang, lang }) {
 }
 
 function Hero({ t }) {
+  const [loaded, setLoaded] = useState(false);
+
+  // Paste the string from hero-skyline-base64.txt
+  const tiny =
+    "data:image/webp;base64,UklGRqwBAABXRUJQVlA4IKABAACQCQCdASogACsAPv1splArJiMitVv8AWAfiWMAx+uoKwuyCqjndjjJX93pTs9LPH5W4sZD50dNirU6d+z6Lzu5DhUOfLej4Sde/Ji/ZgT0RXWhIouAAP7FDxJOioubY9ogsyx4+XJC3Nym2yqRd+Qp81u7m1/whu/gEYZB3CHa5GOA5jVyD2DMHjYaxp+SALjK0mysfsuynLNDN3HI6jwYeOvRgevaei0S0KtlDaQ4F2qNMRqZF9zgoYeBaHhT4ingYr6MoPsBTmhVnGfyyDwI6EtvQ20Ue2NYKSds6G6TYyLxmHnHeY6VCz598f/E1xel/gQskd2U1BrbxCgV9W7M9GKAuVrUwTqIQ5+p9KPiS5oejZXAivkpr947N6dKCKGnd2NER226SZ/3L4gL8uDtB+56gHtCs6SSr8Qw8ZwDHXAFk5TOogfBDV8tc+tpMjlG26qVmYltGsyqZDwfBpKPNdMfPjaIDJNlSL3/zP94C/CV91GyhwcVNmDf9gfDF29qLEZb88qkczhoAOzEID72eLk2rlpvOTvxeLiiHIIAAA=="; // <-- replace with your base64
+
   return (
-    <section id="hero" className="relative min-h-[78vh] md:min-h-[92vh]">
-      {/* Background */}
-      <img
-        src={`${import.meta.env.BASE_URL}images/hero-skyline.webp`}
-        alt="City skyline at dusk"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+    <section
+      id="hero"
+      className="relative min-h-[78vh] md:min-h-[92vh]"
+      style={{
+        backgroundImage: `url(${tiny})`, // show tiny blurred image instantly
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundColor: "#0F172A", // fallback color if nothing loads
+      }}
+    >
+      {/* Full-res background with AVIF + WebP */}
+      <picture>
+        <source srcSet="/images/hero-skyline.avif" type="image/avif" />
+        <source srcSet="/images/hero-skyline.webp" type="image/webp" />
+        <img
+          src="/images/hero-skyline.webp"
+          alt="City skyline at dusk"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
+          onLoad={() => setLoaded(true)}
+          fetchPriority="high"
+          decoding="async"
+          width="1600"
+          height="900"
+        />
+      </picture>
+
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/45" />
 
       {/* Content */}
@@ -348,10 +376,7 @@ function Hero({ t }) {
           <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
             {t.headline}
           </h1>
-          <p className="mt-4 text-lg md:text-2xl opacity-95">
-            {t.subheadline}
-          </p>
-          {/* Button back to normal placement */}
+          <p className="mt-4 text-lg md:text-2xl opacity-95">{t.subheadline}</p>
           <div className="mt-8 flex justify-start">
             <button
               className="btn-coral inline-flex items-center gap-2"
