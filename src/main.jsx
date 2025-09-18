@@ -8,6 +8,7 @@ import {
   useLocation,
   useNavigate,
   Link,
+  Navigate, // <-- pentru redirect
 } from "react-router-dom";
 import PrivacyPage from "./PrivacyPage";
 import ScrollToTop from "./ScrollToTop";
@@ -216,7 +217,6 @@ function Header({ t, switchLang, lang }) {
   return (
     <header
       className="fixed top-0 left-0 w-full z-50 bg-white border-b border-neutral-200"
-      // style={{ position: "static" }}  // ensure header is NOT fixed/sticky
     >
       <div className="container-yt flex items-center justify-between py-2">
         {/* Logo-only brand (button to hero) */}
@@ -334,19 +334,19 @@ function Header({ t, switchLang, lang }) {
 function Hero({ t }) {
   const [loaded, setLoaded] = useState(false);
 
-  // Paste the string from hero-skyline-base64.txt
+  // tiny blurred base64 preview (LQIP)
   const tiny =
-    "data:image/webp;base64,UklGRqwBAABXRUJQVlA4IKABAACQCQCdASogACsAPv1splArJiMitVv8AWAfiWMAx+uoKwuyCqjndjjJX93pTs9LPH5W4sZD50dNirU6d+z6Lzu5DhUOfLej4Sde/Ji/ZgT0RXWhIouAAP7FDxJOioubY9ogsyx4+XJC3Nym2yqRd+Qp81u7m1/whu/gEYZB3CHa5GOA5jVyD2DMHjYaxp+SALjK0mysfsuynLNDN3HI6jwYeOvRgevaei0S0KtlDaQ4F2qNMRqZF9zgoYeBaHhT4ingYr6MoPsBTmhVnGfyyDwI6EtvQ20Ue2NYKSds6G6TYyLxmHnHeY6VCz598f/E1xel/gQskd2U1BrbxCgV9W7M9GKAuVrUwTqIQ5+p9KPiS5oejZXAivkpr947N6dKCKGnd2NER226SZ/3L4gL8uDtB+56gHtCs6SSr8Qw8ZwDHXAFk5TOogfBDV8tc+tpMjlG26qVmYltGsyqZDwfBpKPNdMfPjaIDJNlSL3/zP94C/CV91GyhwcVNmDf9gfDF29qLEZb88qkczhoAOzEID72eLk2rlpvOTvxeLiiHIIAAA=="; // <-- replace with your base64
+    "data:image/webp;base64,UklGRqwBAABXRUJQVlA4IKABAACQCQCdASogACsAPv1splArJiMitVv8AWAfiWMAx+uoKwuyCqjndjjJX93pTs9LPH5W4sZD50dNirU6d+z6Lzu5DhUOfLej4Sde/Ji/ZgT0RXWhIouAAP7FDxJOioubY9ogsyx4+XJC3Nym2yqRd+Qp81u7m1/whu/gEYZB3CHa5GOA5jVyD2DMHjYaxp+SALjK0mysfsuynLNDN3HI6jwYeOvRgevaei0S0KtlDaQ4F2qNMRqZF9zgoYeBaHhT4ingYr6MoPsBTmhVnGfyyDwI6EtvQ20Ue2NYKSds6G6TYyLxmHnHeY6VCz598f/E1xel/gQskd2U1BrbxCgV9W7M9GKAuVrUwTqIQ5+p9KPiS5oejZXAivkpr947N6dKCKGnd2NER226SZ/3L4gL8uDtB+56gHtCs6SSr8Qw8ZwDHXAFk5TOogfBDV8tc+tpMjlG26qVmYltGsyqZDwfBpKPNdMfPjaIDJNlSL3/zP94C/CV91GyhwcVNmDf9gfDF29qLEZb88qkczhoAOzEID72eLk2rlpvOTvxeLiiHIIAAA==";
 
   return (
     <section
       id="hero"
       className="relative min-h-[78vh] md:min-h-[92vh]"
       style={{
-        backgroundImage: `url(${tiny})`, // show tiny blurred image instantly
+        backgroundImage: `url(${tiny})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundColor: "#0F172A", // fallback color if nothing loads
+        backgroundColor: "#0F172A",
       }}
     >
       {/* Full-res background with AVIF + WebP */}
@@ -573,7 +573,8 @@ function Contact({ t }) {
 }
 
 function Footer({ lang }) {
-  const path = lang === "ro" ? "/ro/privacy" : "/privacy";
+  // EN trebuie să ducă la /en/privacy; RO la /ro/privacy
+  const path = lang === "ro" ? "/ro/privacy" : "/en/privacy";
   return (
     <footer className="bg-gray-900 text-white">
       <div className="border-t border-white/10" />
@@ -625,10 +626,18 @@ function AppRouter() {
   const { lang, t, switchLang } = useLang();
   return (
     <Routes>
+      {/* Home */}
       <Route path="/" element={<OnePage t={t} switchLang={switchLang} lang={lang} />} />
       <Route path="/ro" element={<OnePage t={t} switchLang={switchLang} lang={lang} />} />
-      <Route path="/privacy" element={<PrivacyPage />} />
+      <Route path="/en" element={<OnePage t={t} switchLang={switchLang} lang={lang} />} />
+
+      {/* Privacy */}
       <Route path="/ro/privacy" element={<PrivacyPage />} />
+      <Route path="/en/privacy" element={<PrivacyPage />} />
+      {/* Backward-compat: vechiul /privacy → EN */}
+      <Route path="/privacy" element={<Navigate to="/en/privacy" replace />} />
+
+      {/* Catch-all */}
       <Route path="*" element={<OnePage t={t} switchLang={switchLang} lang={lang} />} />
     </Routes>
   );
@@ -637,7 +646,7 @@ function AppRouter() {
 // --- Mount (GitHub Pages: use basename)
 const container = document.getElementById("root");
 createRoot(container).render(
-  <BrowserRouter basename='/'>
+  <BrowserRouter basename="/">
     <ScrollToTop />
     <AppRouter />
   </BrowserRouter>
