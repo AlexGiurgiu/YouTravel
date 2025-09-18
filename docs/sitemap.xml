@@ -3,26 +3,47 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
 >
+
+  <!-- Homepage RO -->
   <url>
     <loc>https://youtravel.ro/</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ro" href="https://youtravel.ro/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://youtravel.ro/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youtravel.ro/"/>
   </url>
 
+  <!-- Homepage EN -->
   <url>
-    <loc>https://youtravel.ro/privacy</loc>
-    <lastmod>2025-08-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://youtravel.ro/en</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://youtravel.ro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youtravel.ro/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youtravel.ro/"/>
   </url>
 
+  <!-- Privacy RO -->
   <url>
     <loc>https://youtravel.ro/ro/privacy</loc>
-    <lastmod>2025-08-26</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://youtravel.ro/ro/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youtravel.ro/en/privacy"/>
   </url>
+
+  <!-- Privacy EN -->
+  <url>
+    <loc>https://youtravel.ro/en/privacy</loc>
+    <lastmod>2025-09-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://youtravel.ro/ro/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youtravel.ro/en/privacy"/>
+  </url>
+
 </urlset>
