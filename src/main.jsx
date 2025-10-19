@@ -14,6 +14,7 @@ import PrivacyPage from "./PrivacyPage";
 import ScrollToTop from "./ScrollToTop";
 import { FaWhatsapp, FaPhone, FaEnvelope } from "react-icons/fa";
 import { FaPaperPlane } from "react-icons/fa";
+import ReviewsSection from "./components/ReviewsSection";
 
 // --- Theme tokens (kept for inline color needs)
 const COLORS = { navy: "#1D3557", coral: "#E76F51" };
@@ -21,12 +22,17 @@ const COLORS = { navy: "#1D3557", coral: "#E76F51" };
 // --- Translations
 const T = {
   en: {
-    headline: "Personalized Travel. Anytime, Anywhere.",
-    subheadline: "Smart journeys for businesses & families.",
+    hero: {
+      line1: "From planning to your return home —",
+      line2: "we handle everything.",
+      tagline: "Care-free travel for business and families.",
+      cta: "Contact"
+    },
     nav: {
       corporate: "Corporate Travel",
       family: "Bespoke Holidays",
       about: "About Us",
+      reviews: "Reviews",
       contact: "Contact",
     },
     corp: {
@@ -47,15 +53,33 @@ const T = {
       b3: "We ensure the best price–quality balance",
       b4: "We support you from planning to your safe return — including travel health insurance",
     },
-    about: {
-      title: "Why Travel with Us?",
-      p1: "At YouTravel, we believe journeys should be effortless and personal. Unlike agencies that only sell packages, we act as your travel consultant—listening first, then creating solutions that truly fit your needs.",
-      p2: "Our founder has over 13 years of experience in the travel industry, working within specialized travel agencies. She has traveled across three continents and has organized numerous large-scale corporate events, as well as tailor-made vacations for clients. From hotels and flights to rental cars, we handle every detail, represent you in any dispute with providers, and stay available 24/7—so your only focus is enjoying the journey.",
-      bullets: [
-        "We listen first, then tailor the right solution",
-        "13+ years experience in travel & events",
-        "Licensed, insured & transparent — including travel health insurance",
-        "Here for you 24/7 before, during & after your trip",
+        about: {
+      title: "Your travel partner — not just another agency",
+      p1: "You won’t find thousands of generic offers on our website—and that’s on purpose. We prefer to understand what you need and deliver exactly what fits you, rather than making you sift through dozens of irrelevant options.",
+      p2: "We’re not just a travel agency — we’re your trusted travel consultant. We’re here before, during, and after the trip. You focus on business or family; we take care of everything else.",
+      p3: "We listen, ask, and understand — then design your trip as if we were planning it for our own family.",
+      whyTitle: "Why clients stay with us:",
+      points: [
+        {
+          title: "Tailor-made travel, never copy-paste",
+          text:
+            "Every proposal is crafted from scratch based on your real needs — company culture, constraints, timing, preferences.",
+        },
+        {
+          title: "We save you time — we handle everything",
+          text:
+            "We research, compare, negotiate and organize end-to-end. You only approve. No more tab chaos and back-and-forth.",
+        },
+        {
+          title: "Your safety net, 24/7",
+          text:
+            "Flight canceled? Hotel issue? You call, we fix it. Real support, not ticketing robots — you’re never alone on the road.",
+        },
+        {
+          title: "A long-term relationship, not a transaction",
+          text:
+            "We aim to be your trusted travel partner for years, not just one trip — consistent quality and accountability.",
+        },
       ],
     },
     contact: {
@@ -69,12 +93,17 @@ const T = {
     backHome: "Back to Home",
   },
   ro: {
-    headline: "Călătorii personalizate. Oriunde, oricând.",
-    subheadline: "Călătorii fără griji pentru afaceri și familii.",
+    hero: {
+      line1: "De la planificare până la întoarcerea acasă —",
+      line2: "ne ocupăm de tot.",
+      tagline: "Călătorii fără griji pentru afaceri și familii.",
+      cta: "Contact"
+    },
     nav: {
       corporate: "Corporate Travel",
       family: "Vacanțe Personalizate",
       about: "Despre noi",
+      reviews: "Recenzii", 
       contact: "Contact",
     },
     corp: {
@@ -96,14 +125,32 @@ const T = {
       b4: "Oferim suport de la planificare până la întoarcerea acasă — inclusiv asigurări medicale de călătorie",
     },
     about: {
-      title: "De ce să călătoriți cu noi?",
-      p1: "La YouTravel, credem că fiecare călătorie trebuie să fie fără griji și personalizată. Spre deosebire de agențiile care vând doar pachete standard, noi acționăm ca un consultant de călătorii — ascultăm mai întâi și apoi construim soluții care vi se potrivesc cu adevărat.",
-      p2: "Fondatoarea noastră are peste 13 ani de experiență în domeniul turismului, lucrând în cadrul agențiilor de profil. A călătorit pe trei continente și a organizat numeroase evenimente corporate de amploare, alături de vacanțe personalizate pentru clienți. De la hoteluri și zboruri la mașini de închiriat, ne ocupăm de fiecare detaliu, vă reprezentăm în orice dispută cu furnizorii și suntem disponibili 24/7 — astfel încât singurul vostru focus să fie să vă bucurați de călătorie.",
-      bullets: [
-        "Ascultăm mai întâi, apoi construim soluția potrivită",
-        "13+ ani experiență în turism & evenimente",
-        "Servicii licențiate, asigurate & transparente — inclusiv asigurări medicale de călătorie",
-        "Suntem alături de voi 24/7, înainte, pe durata și după călătorie",
+      title: "Partenerul tău de călătorie, nu doar o agenție",
+      p1: "Nu vei găsi la noi mii de oferte generice afișate pe site — este intenționat. Preferăm să înțelegem ce nevoi ai și să oferim exact ceea ce ți se potrivește, nu să te punem să cauți prin zeci de variante nepotrivite.",
+      p2: "Nu suntem doar o agenție, ci consultantul tău de încredere în călătorii. Suntem prezenți înainte, în timpul și după călătorie. Tu te concentrezi pe business sau familie, noi avem grijă de restul.",
+      p3: "Ascultăm, întrebăm, înțelegem, apoi gândim oferta ca și cum am planifica pentru propria noastră familie.",
+      whyTitle: "De ce clienții rămân cu noi:",
+      points: [
+        {
+          title: "Călătorii personalizate, nu copy-paste",
+          text:
+            "Fiecare propunere este gândită de la zero după nevoile tale reale — cultura organizației, constrângeri, timp, preferințe.",
+        },
+        {
+          title: "Îți câștigăm timp — noi facem toată munca",
+          text:
+            "Căutăm, comparăm, negociem și organizăm cap-coadă. Tu doar aprobi. Fără zeci de tab-uri și mesaje înainte-înapoi.",
+        },
+        {
+          title: "Planul tău de siguranță, 24/7",
+          text:
+            "Zbor anulat? Problemă la hotel? Suni și rezolvăm. Suport real, nu roboți — nu ești niciodată singur pe drum.",
+        },
+        {
+          title: "Relație pe termen lung, nu o tranzacție",
+          text:
+            "Vrem să fim „omul tău de încredere pentru călătorii” ani la rând, nu doar pentru o singură vacanță — calitate constantă și asumare.",
+        },
       ],
     },
     contact: {
@@ -182,7 +229,7 @@ function Header({ t, switchLang, lang }) {
 
   // Active section highlight
   useEffect(() => {
-    const ids = ["corporate", "family", "about", "contact"]; // order matters
+    const ids = ["corporate", "family", "about", "reviews", "contact"]; // order matters
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -233,6 +280,7 @@ function Header({ t, switchLang, lang }) {
           <Tab id="corporate">{t.nav.corporate}</Tab>
           <Tab id="family">{t.nav.family}</Tab>
           <Tab id="about">{t.nav.about}</Tab>
+          <Tab id="reviews">{t.nav.reviews}</Tab>
           <Tab id="contact">{t.nav.contact}</Tab>
 
           {/* Language dropdown */}
@@ -307,6 +355,12 @@ function Header({ t, switchLang, lang }) {
               </button>
               <button
                 className="text-left text-xl py-4 border-b border-neutral-200"
+                onClick={() => { scrollToId("reviews"); setMobileOpen(false); }}
+              >
+                {t.nav.reviews}
+              </button>
+              <button
+                className="text-left text-xl py-4 border-b border-neutral-200"
                 onClick={() => { scrollToId("contact"); setMobileOpen(false); }}
               >
                 {t.nav.contact}
@@ -367,17 +421,46 @@ function Hero({ t }) {
         />
       </picture>
 
-      {/* Overlay */}
+      {/* Overlays */}
       <div className="absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0 bg-black/40 md:bg-black/30 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 container-yt flex items-center min-h-[78vh] md:min-h-[92vh]">
-        <div className="text-white max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
-            {t.headline}
+        <div className="text-white max-w-[920px]">
+          {/* MOBILE: 2 rânduri, dimensiune >= text-3xl */}
+          <h1
+            className="
+              sm:hidden
+              font-extrabold text-white tracking-tight leading-tight
+              text-[30px] xs:text-[32px]
+              drop-shadow-[0_2px_6px_rgba(0,0,0,.25)]
+            "
+          >
+            <h1 className="sm:hidden text-[30px] font-extrabold leading-tight">
+            De la planificare până la întoarcerea<br />
+            acasă — ne ocupăm de tot.
           </h1>
-          <p className="mt-4 text-lg md:text-2xl opacity-95">{t.subheadline}</p>
-          <div className="mt-8 flex justify-start">
+          </h1>
+
+          {/* DESKTOP/TABLET: rămâne ca înainte */}
+          <h1
+            className="
+              hidden sm:block
+              font-extrabold text-white tracking-tight leading-tight
+              text-[28px] sm:text-[34px] md:text-[38px] lg:text-[40px] xl:text-[42px]
+              drop-shadow-[0_2px_6px_rgba(0,0,0,.25)]
+            "
+          >
+            <span className="block">{t.hero.line1}</span>
+            <span className="block">{t.hero.line2}</span>
+          </h1>
+
+          <p className="mt-4 md:mt-5 text-base md:text-lg opacity-95 max-w-[60ch]">
+            {t.hero.tagline}
+          </p>
+
+          <div className="mt-7 md:mt-8 flex justify-start">
             <button
               className="btn-coral inline-flex items-center gap-2"
               onClick={() => scrollToId("contact")}
@@ -478,53 +561,70 @@ function Family({ t }) {
 function About({ t }) {
   return (
     <section id="about" className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-        {/* Text first always */}
-        <div className="order-1 md:order-none">
-          <h2 className="text-3xl font-bold mb-4" style={{ color: COLORS.navy }}>
-            {t.about.title}
-          </h2>
+      <div className="container-yt">
+        {/* Titlu pe un singur rând (pe cât permite lățimea containerului) */}
+        <h2 className="text-3xl font-bold mb-6 text-[#1D3557]">
+          {t.about.title}
+        </h2>
 
-          {/* Paragraphs with justified text */}
-          <div className="text-gray-700 space-y-4 mb-8 leading-relaxed text-justify">
-            <p>{t.about.p1}</p>
-            <p>{t.about.p2}</p>
+        {/* Sub titlu: două coloane – stânga (statement boxes), dreapta (imagine) */}
+        <div className="grid md:grid-cols-2 gap-10 items-start">
+          {/* Statement boxes – verticale, aerisite */}
+          <div className="space-y-4 md:space-y-5">
+            <div className="rounded-2xl border border-neutral-200 bg-white shadow-sm p-5 md:p-6">
+              <p className="text-gray-700 leading-relaxed text-justify">
+                {t.about.p1}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-neutral-200 bg-white shadow-sm p-5 md:p-6">
+              <p className="text-gray-700 leading-relaxed text-justify">
+                {t.about.p2}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-neutral-200 bg-white shadow-sm p-5 md:p-6">
+              <p className="text-gray-700 leading-relaxed text-justify">
+                {t.about.p3}
+              </p>
+            </div>
           </div>
 
-          {/* Bullets */}
-          <ul className="grid sm:grid-cols-2 gap-3 text-gray-800">
-            {t.about.bullets.map((item, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <svg
-                  className="mt-1 shrink-0"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <circle cx="10" cy="10" r="10" fill={COLORS.coral} />
-                  <path
-                    d="M6 10.5l2.2 2.2L14 7"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span>{item}</span>
+          {/* Imagine aliniată SUS cu primul chenar (titlul este în afara grilei) */}
+          <div>
+            <img
+              src={`${import.meta.env.BASE_URL}images/about-canyon.webp`}
+              alt={t.about?.imgAlt || "Curated travel experiences"}
+              className="rounded-2xl shadow-lg object-cover w-full h-64 md:h-[420px]"
+            />
+          </div>
+        </div>
+
+        {/* Subtitlu + bullets (pe toată lățimea) */}
+        <div className="mt-10 md:mt-12">
+          <div className="text-sm uppercase tracking-wide text-gray-500 mb-4">
+            {t.about.whyTitle}
+          </div>
+
+          {/* 2 coloane pe desktop; spațiere compactă */}
+          <ul className="grid md:grid-cols-2 gap-6 md:gap-8">
+            {t.about.points.map((pt, i) => (
+              <li key={i} className="flex items-start gap-3">
+                {/* Bifa / pictogramă */}
+                <span className="mt-1 inline-flex w-5 h-5 shrink-0 items-center justify-center rounded-full bg-[#1D3557] text-white text-xs">
+                  ✓
+                </span>
+
+                {/* Titlu + text */}
+                <div>
+                  <div className="font-semibold text-[#1D3557] leading-snug mb-1">
+                    {pt.title}
+                  </div>
+                  <p className="text-gray-700 text-[15px] leading-relaxed text-justify max-w-prose">
+                    {pt.text}
+                  </p>
+                </div>
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* Image second always */}
-        <div className="order-2 md:order-none">
-          <img
-            src={`${import.meta.env.BASE_URL}images/about-canyon.webp`}
-            alt="Curated travel experiences"
-            className="rounded-xl shadow-lg object-cover w-full h-64 md:h-[420px]"
-          />
         </div>
       </div>
     </section>
@@ -615,6 +715,7 @@ function OnePage({ t, switchLang, lang }) {
         <Corporate t={t} />
         <Family t={t} />
         <About t={t} />
+        <ReviewsSection lang={lang} />
         <Contact t={t} />
       </main>
       <Footer lang={lang} />
