@@ -33,7 +33,7 @@ const PLACE_ID = "ChIJdclidm_0iCYRLdM10rxvDu4";
 const GOOGLE_PROFILE_URL = "https://maps.app.goo.gl/8MyLGPiV1nRcfSAHA";
 const GOOGLE_WRITE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${PLACE_ID}`;
 const reviewsPath = () =>
-  `${import.meta.env.BASE_URL || "/"}reviews/reviews.json`;
+  `${import.meta.env.BASE_URL}reviews.json`;
 
 /* HELPERS */
 function clampTextStyle(lines = 5) {
@@ -74,14 +74,7 @@ function initialFromName(name) {
   if (!name || typeof name !== "string") return "A";
   return name.trim().charAt(0).toUpperCase();
 }
-function isGoogleLetterAvatar(url = "") {
-  if (!url) return false;
-  const u = url.toString();
-  const isLh3 = u.includes("lh3.googleusercontent.com");
-  const looksLikeLetter =
-    /=s\d+-c0x0+/i.test(u) || u.includes("-c0x00000000-cc") || u.includes("-cc-rp-mo");
-  return isLh3 && looksLikeLetter;
-}
+
 function Star({ filled = false, className = "" }) {
   return (
     <svg
@@ -244,7 +237,7 @@ export default function ReviewsSection({ lang = "ro" }) {
       <div className="container-yt">
         <h2 className="text-3xl font-bold mb-4 text-[#1D3557]">{t.title}</h2>
 
-        <div className="rounded-2xl border border-neutral-200 bg-white shadow-sm px-5 py-4 mdq:px-8 md:py-5 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="rounded-2xl border border-neutral-200 bg-white shadow-sm px-5 py-4 md:px-8 md:py-5 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               {[...Array(5)].map((_, i) => (
@@ -286,17 +279,13 @@ export default function ReviewsSection({ lang = "ro" }) {
 
           {!error && reviews.length > 0 && (
             <>
-              <div
-                className="relative block"
-                // onMouseOver={() => setIsHovering(true)}
-                // onMouseOut={() => setIsHovering(false)}
-                // onPointerOver={() => setIsHovering(true)}
-                // onPointerOut={() => setIsHovering(false)}
-              >
+              <div className="relative block">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
                   {visible.map((rev, idx) => {
-                    const showRealImg =
-                      rev.profilePhotoUrl && !isGoogleLetterAvatar(rev.profilePhotoUrl);
+                    // Simple, robust detection: if Google gives a real user photo,
+                    // the URL contains "/a-/".
+                    const isRealPhoto = rev.profilePhotoUrl?.includes("/a-/");
+
                     return (
                       <article
                         key={`${rev.authorName}-${idx}-${cursor}`}
@@ -307,7 +296,8 @@ export default function ReviewsSection({ lang = "ro" }) {
                             <span className="absolute -top-1 -left-1 rounded-full bg-white p-[2px] shadow">
                               <GoogleGIcon className="w-4 h-4" />
                             </span>
-                            {showRealImg ? (
+
+                            {isRealPhoto ? (
                               <img
                                 src={rev.profilePhotoUrl}
                                 alt={rev.authorName}
@@ -323,6 +313,7 @@ export default function ReviewsSection({ lang = "ro" }) {
                               </div>
                             )}
                           </div>
+
                           <div className="min-w-0">
                             <a
                               href={rev.googleProfileUrl || GOOGLE_PROFILE_URL}
@@ -404,8 +395,8 @@ export default function ReviewsSection({ lang = "ro" }) {
           >
             <div className="flex items-start gap-3">
               {(() => {
-                const showReal = modal.profilePhotoUrl && !isGoogleLetterAvatar(modal.profilePhotoUrl);
-                return showReal ? (
+                const isRealPhoto = modal.profilePhotoUrl?.includes("/a-/");
+                return isRealPhoto ? (
                   <img
                     src={modal.profilePhotoUrl}
                     alt={modal.authorName}
