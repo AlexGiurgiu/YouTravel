@@ -1,17 +1,6 @@
 [
   {
     "rating": 5,
-    "text": "They are the best !!!!",
-    "publishTime": "2025-10-16T12:37:52.331459418Z",
-    "relativePublishTimeDescription": "in the last week",
-    "author": {
-      "displayName": "Ana Stroea",
-      "uri": "https://www.google.com/maps/contrib/116722874281595338698/reviews",
-      "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocLL49vurDGy1jyhZfPreZrTYjR6vXO66ejmKr-zQwBbhIWKGA=s128-c0x00000000-cc-rp-mo"
-    }
-  },
-  {
-    "rating": 5,
     "text": "Rapiditate, varietate, flexibilitate si preturi accesibile. Recomand!",
     "publishTime": "2025-10-20T15:58:02.608898441Z",
     "relativePublishTimeDescription": "in the last week",
@@ -41,6 +30,17 @@
       "displayName": "Andreea Barbu",
       "uri": "https://www.google.com/maps/contrib/115836413639321395556/reviews",
       "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocLH8um9yZwUCV_Wxub9K_LiMjgjvSrGmEzAmmnYe7ReOvbO2g=s128-c0x00000000-cc-rp-mo"
+    }
+  },
+  {
+    "rating": 5,
+    "text": "They are the best !!!!",
+    "publishTime": "2025-10-16T12:37:52.331459418Z",
+    "relativePublishTimeDescription": "in the last week",
+    "author": {
+      "displayName": "Ana Stroea",
+      "uri": "https://www.google.com/maps/contrib/116722874281595338698/reviews",
+      "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocLL49vurDGy1jyhZfPreZrTYjR6vXO66ejmKr-zQwBbhIWKGA=s128-c0x00000000-cc-rp-mo"
     }
   }
 ]
