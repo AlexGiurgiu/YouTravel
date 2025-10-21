@@ -324,7 +324,7 @@ export default function ReviewsSection({ lang = "ro" }) {
                             >
                               {rev.authorName}
                             </a>
-                            <div className="text-sm text-gray-500">{rev.when || t.recent}</div>
+                            {/* <div className="text-sm text-gray-500">{rev.when || t.recent}</div> */}
                           </div>
                         </div>
 
@@ -410,7 +410,7 @@ export default function ReviewsSection({ lang = "ro" }) {
               })()}
               <div className="min-w-0">
                 <div className="font-semibold text-[#1D3557]">{modal.authorName}</div>
-                <div className="text-sm text-gray-500">{modal.when || t.recent}</div>
+                {/* <div className="text-sm text-gray-500">{modal.when || t.recent}</div> */}
               </div>
             </div>
 
