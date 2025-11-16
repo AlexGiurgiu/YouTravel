@@ -23,7 +23,7 @@ const COLORS = { navy: "#1D3557", coral: "#E76F51" };
 const T = {
   en: {
     hero: {
-      line1: "From planning to your return home —",
+      line1: "From planning to your return home,",
       line2: "we handle everything.",
       tagline: "Care-free travel for business and families.",
       cta: "Contact"
@@ -38,7 +38,7 @@ const T = {
     corp: {
       title: "Corporate Travel & Events",
       text:
-        "From flights and hotels to team-building events, we take care of every detail — optimizing costs and providing 24/7 support so your team can focus on business.",
+        "From flights and hotels to team-building events, we take care of every detail, optimizing costs and providing 24/7 support so your team can focus on business.",
       b1: "We provide tailored travel consultancy",
       b2: "We organize business events, teambuildings and corporate parties",
       b3: "We balance cost and quality to optimize every trip",
@@ -47,38 +47,38 @@ const T = {
     fam: {
       title: "Bespoke Family Holidays",
       text:
-        "Family time is precious — and holidays should be stress-free. We design personalized escapes that match your style, budget, and dreams.",
+        "Family time is precious and holidays should be stress-free. We design personalized escapes that match your style, budget, and dreams.",
       b1: "We create tailor-made itineraries",
       b2: "We design holidays for the joy of every family member",
       b3: "We ensure the best price–quality balance",
-      b4: "We support you from planning to your safe return — including travel health insurance",
+      b4: "We support you from planning to your safe return, including travel health insurance",
     },
         about: {
-      title: "Your travel partner — not just another agency",
-      p1: "You won’t find thousands of generic offers on our website—and that’s on purpose. We prefer to understand what you need and deliver exactly what fits you, rather than making you sift through dozens of irrelevant options.",
-      p2: "We’re not just a travel agency — we’re your trusted travel consultant. We’re here before, during, and after the trip. You focus on business or family; we take care of everything else.",
-      p3: "We listen, ask, and understand — then design your trip as if we were planning it for our own family.",
+      title: "Your travel partner, not just another agency",
+      p1: "You won’t find thousands of generic offers on our website and that’s on purpose. We prefer to understand what you need and deliver exactly what fits you, rather than making you sift through dozens of irrelevant options.",
+      p2: "We’re not just a travel agency, we’re your trusted travel consultant. We’re here before, during, and after the trip. You focus on business or family; we take care of everything else.",
+      p3: "We listen, ask, and understand then design your trip as if we were planning it for our own family.",
       whyTitle: "Why clients stay with us:",
       points: [
         {
           title: "Tailor-made travel, never copy-paste",
           text:
-            "Every proposal is crafted from scratch based on your real needs — company culture, constraints, timing, preferences.",
+            "Every proposal is crafted from scratch based on your real needs: company culture, constraints, timing, preferences.",
         },
         {
-          title: "We save you time — we handle everything",
+          title: "We save you time",
           text:
             "We research, compare, negotiate and organize end-to-end. You only approve. No more tab chaos and back-and-forth.",
         },
         {
           title: "Your safety net, 24/7",
           text:
-            "Flight canceled? Hotel issue? You call, we fix it. Real support, not ticketing robots — you’re never alone on the road.",
+            "Flight canceled? Hotel issue? You call, we fix it. We offer real support, not robots.",
         },
         {
           title: "A long-term relationship, not a transaction",
           text:
-            "We aim to be your trusted travel partner for years, not just one trip — consistent quality and accountability.",
+            "We aim to be your trusted travel partner for years, not just for one trip.",
         },
       ],
     },
@@ -94,7 +94,7 @@ const T = {
   },
   ro: {
     hero: {
-      line1: "De la planificare până la întoarcerea acasă —",
+      line1: "De la planificare până la întoarcerea acasă,",
       line2: "ne ocupăm de tot.",
       tagline: "Călătorii fără griji pentru afaceri și familii.",
       cta: "Contact"
@@ -109,7 +109,7 @@ const T = {
     corp: {
       title: "Călătorii & Evenimente Corporate",
       text:
-        "De la zboruri și hoteluri la team building-uri, ne ocupăm de fiecare detaliu — optimizăm costurile și oferim suport 24/7 pentru ca echipa ta să se concentreze pe business.",
+        "De la zboruri și hoteluri la team building-uri, ne ocupăm de fiecare detaliu, optimizăm costurile și oferim suport 24/7 pentru ca echipa ta să se concentreze pe business.",
       b1: "Oferim consultanță de călătorie personalizată",
       b2: "Organizăm evenimente corporate, team building-uri și petreceri",
       b3: "Optimizăm costurile și calitatea fiecărei călătorii",
@@ -118,15 +118,15 @@ const T = {
     fam: {
       title: "Vacanțe pentru familia ta",
       text:
-        "Timpul petrecut cu familia este prețios — iar vacanțele trebuie să fie fără griji. Noi creăm experiențe adaptate stilului, bugetului și viselor voastre.",
+        "Timpul petrecut cu familia este prețios, iar vacanțele trebuie să fie fără griji. Noi creăm experiențe adaptate stilului, bugetului și viselor voastre.",
       b1: "Creăm itinerarii personalizate",
       b2: "Creăm vacanțe pentru bucuria fiecărui membru al familiei",
       b3: "Asigurăm cel mai bun raport calitate–preț",
-      b4: "Oferim suport de la planificare până la întoarcerea acasă — inclusiv asigurări medicale de călătorie",
+      b4: "Oferim suport de la planificare până la întoarcerea acasă, inclusiv asigurări medicale de călătorie",
     },
     about: {
       title: "Partenerul tău de călătorie, nu doar o agenție",
-      p1: "Nu vei găsi la noi mii de oferte generice afișate pe site — este intenționat. Preferăm să înțelegem ce nevoi ai și să oferim exact ceea ce ți se potrivește, nu să te punem să cauți prin zeci de variante nepotrivite.",
+      p1: "Nu vei găsi la noi mii de oferte generice afișate pe site, este intenționat. Preferăm să înțelegem ce nevoi ai și să oferim exact ceea ce ți se potrivește, nu să te punem să cauți prin zeci de variante nepotrivite.",
       p2: "Nu suntem doar o agenție, ci consultantul tău de încredere în călătorii. Suntem prezenți înainte, în timpul și după călătorie. Tu te concentrezi pe business sau familie, noi avem grijă de restul.",
       p3: "Ascultăm, întrebăm, înțelegem, apoi gândim oferta ca și cum am planifica pentru propria noastră familie.",
       whyTitle: "De ce clienții rămân cu noi:",
@@ -134,22 +134,22 @@ const T = {
         {
           title: "Călătorii personalizate, nu copy-paste",
           text:
-            "Fiecare propunere este gândită de la zero după nevoile tale reale — cultura organizației, constrângeri, timp, preferințe.",
+            "Fiecare propunere este gândită de la zero după nevoile tale reale. Tinem cont de cultura organizației, constrângeri, timp și preferințe.",
         },
         {
-          title: "Îți câștigăm timp — noi facem toată munca",
+          title: "Îți câștigăm timp",
           text:
             "Căutăm, comparăm, negociem și organizăm cap-coadă. Tu doar aprobi. Fără zeci de tab-uri și mesaje înainte-înapoi.",
         },
         {
           title: "Planul tău de siguranță, 24/7",
           text:
-            "Zbor anulat? Problemă la hotel? Suni și rezolvăm. Suport real, nu roboți — nu ești niciodată singur pe drum.",
+            "Zbor anulat? Problemă la hotel? Suni și rezolvăm. Oferim suport real, nu roboți.",
         },
         {
           title: "Relație pe termen lung, nu o tranzacție",
           text:
-            "Vrem să fim „omul tău de încredere pentru călătorii” ani la rând, nu doar pentru o singură vacanță — calitate constantă și asumare.",
+            "Ne dorim să fim „omul tău de încredere pentru călătorii” ani la rând, nu doar pentru o singură călătorie.",
         },
       ],
     },
@@ -438,8 +438,9 @@ function Hero({ t }) {
             "
           >
             <h1 className="sm:hidden text-[30px] font-extrabold leading-tight">
-            De la planificare până la întoarcerea<br />
-            acasă — ne ocupăm de tot.
+            De la planificare până la<br />
+            întoarcerea acasă,<br />
+            ne ocupăm de tot.
           </h1>
           </h1>
 
