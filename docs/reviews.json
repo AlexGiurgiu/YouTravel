@@ -54,7 +54,18 @@
       "photoUri": "https://lh3.googleusercontent.com/a-/ALV-UjUZK-seMIR5rRhszx-kuRKiYXpPizMH4jR_tjbrpYC7-P8oRxANkg=s128-c0x00000000-cc-rp-mo"
     }
   },
-  {
+    {
+    "rating": 5,
+    "text": "Am avut parte de o experiență excelentă! Agenția s-a ocupat de absolut tot, de la bilete până la cazare și transferuri. Cu siguranță voi apela din nou!",
+    "publishTime": "2025-12-07T12:37:52.331459418Z",
+    "relativePublishTimeDescription": "in the last week",
+    "author": {
+      "displayName": "Sava Daradici Cristiana",
+      "uri": "https://www.google.com/maps/contrib/101225679651413141101/reviews",
+      "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocLRa7y-dwmkS6xfVg_GA7yiwTzsXuL6cWuQQzexgvm8O1Qwkg=w144-h144-p-rp-mo-br100"
+    }
+  },
+    {
     "rating": 5,
     "text": "Rapiditate, varietate, flexibilitate si preturi accesibile. Recomand!",
     "publishTime": "2025-10-20T15:58:02.608898441Z",
@@ -74,6 +85,17 @@
       "displayName": "Ana Stroea",
       "uri": "https://www.google.com/maps/contrib/116722874281595338698/reviews",
       "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocLL49vurDGy1jyhZfPreZrTYjR6vXO66ejmKr-zQwBbhIWKGA=s128-c0x00000000-cc-rp-mo"
+    }
+  },
+    {
+    "rating": 5,
+    "text": "Am fost extrem de multumit de colaborarea cu Madalina ! Foarte profi",
+    "publishTime": "2025-12-07T12:37:52.331459418Z",
+    "relativePublishTimeDescription": "in the last week",
+    "author": {
+      "displayName": "Sava Calin Andrei",
+      "uri": "https://www.google.com/maps/contrib/118109483160999775510/reviews",
+      "photoUri": "https://lh3.googleusercontent.com/a/ACg8ocKaXbmdTchgzYATtX-JxSnPFsWG4U0PJY3fOMG5KLuhGQQZTg=w144-h144-p-rp-mo-br100"
     }
   }
 ]
