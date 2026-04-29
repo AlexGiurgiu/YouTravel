@@ -693,7 +693,7 @@ function Footer({ lang }) {
         <p className="text-xs opacity-70 leading-relaxed max-w-3xl">
           YOUR TRAVEL SOLUTIONS SRL • CUI: RO 48018452 • Nr. Reg. Com.: J40/7471/2023 <br />
           Licența de turism nr. 2786 / 25.05.2023 • Brevet de turism nr. 26310 / 05.05.2022 <br />
-          Polița de asigurare nr. IF-i 4545 (valabilă până la 27.04.2026) — S.C. GERMAN ROMANIAN ASSURANCE S.A.
+          Polița de asigurare nr. IF-i 4009 (valabilă până la 27.04.2027) — S.C. GERMAN ROMANIAN ASSURANCE S.A.
         </p>
       </div>
     </footer>
